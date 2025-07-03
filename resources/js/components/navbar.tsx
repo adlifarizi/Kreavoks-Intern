@@ -29,7 +29,7 @@ export function Navbar() {
         <nav className={`px-5 md:px-8 py-5 flex justify-between items-center sticky top-0 w-full z-50 shadow-none transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-gradient-to-r from-white to-transparent"}`}>
             {/* Logo */}
             <Link href="/" >
-                <img src="images/logo-color.svg" className="h-5 md:h-6" />
+                <img src="/images/logo-color.svg" className="h-5 md:h-6" />
             </Link>
 
             {/* Desktop Navigation */}
