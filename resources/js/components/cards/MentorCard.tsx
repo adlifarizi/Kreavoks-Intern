@@ -8,7 +8,7 @@ interface Props {
 
 export default function MentorCard({ mentor }: Props) {
     return (
-        <div className="w-[260px] bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 overflow-hidden">
+        <div className="w-[240px] md:w-[260px] bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] transition-all duration-300 overflow-hidden">
             <img
                 src={mentor.image || `/images/placeholders/mentor-card.png`} //Change the placeholder at public/images/placeholders/mentor-card.png (make sure use the same filename)
                 alt={mentor.name}

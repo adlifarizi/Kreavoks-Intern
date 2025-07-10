@@ -556,10 +556,10 @@ export default function Home() {
                     />
 
                     <div className="relative mt-12 z-10 text-center w-full max-w-full">
-                        <h2 className="text-5xl font-semibold mb-4">
+                        <h2 className="text-4xl md:text-5xl font-semibold mb-4">
                             Mentor di Kreavoks
                         </h2>
-                        <p className="text-2xl text-gray-500 mb-8">
+                        <p className="text-xl md:text-2xl text-gray-500 mb-8">
                             Pengalamannya ga main-main
                         </p>
 
@@ -570,7 +570,7 @@ export default function Home() {
                             <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
 
                             <div
-                                className="flex gap-8 overflow-x-auto py-2 px-8 md:px-16 scrollbar-hide"
+                                className="flex md:gap-8 overflow-x-auto py-2 px-8 md:px-16 scrollbar-hide"
                                 style={{
                                     scrollSnapType: "x mandatory",
                                     WebkitOverflowScrolling: "touch",
