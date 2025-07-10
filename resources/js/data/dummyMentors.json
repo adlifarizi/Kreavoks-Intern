@@ -19,5 +19,47 @@
         "job": "Student at IPB University",
         "role": "Mentor Frontend Development",
         "image": "/images/dummy/mentors/setiady.png"
+    },
+    {
+        "id": 4,
+        "name": "Muhammad Ardi Deswanto",
+        "job": "Senior Product Designer at SQE (Sinarmas Group)",
+        "role": "Mentor UI/UX",
+        "image": "/images/dummy/mentors/MuhammadArdi.png"
+    },
+    {
+        "id": 5,
+        "name": "Fauzi Adi Saputra",
+        "job": "Student at IPB University",
+        "role": "Mentor Mobile Development",
+        "image": "/images/dummy/mentors/FauziAdi.png"
+    },
+    {
+        "id": 6,
+        "name": "Muhammad Ardi Deswanto",
+        "job": "Senior Product Designer at SQE (Sinarmas Group)",
+        "role": "Mentor UI/UX",
+        "image": "/images/dummy/mentors/MuhammadArdi.png"
+    },
+    {
+        "id": 7,
+        "name": "Fauzi Adi Saputra",
+        "job": "Student at IPB University",
+        "role": "Mentor Mobile Development",
+        "image": "/images/dummy/mentors/FauziAdi.png"
+    },
+    {
+        "id": 4,
+        "name": "Muhammad Ardi Deswanto",
+        "job": "Senior Product Designer at SQE (Sinarmas Group)",
+        "role": "Mentor UI/UX",
+        "image": "/images/dummy/mentors/MuhammadArdi.png"
+    },
+    {
+        "id": 5,
+        "name": "Fauzi Adi Saputra",
+        "job": "Student at IPB University",
+        "role": "Mentor Mobile Development",
+        "image": "/images/dummy/mentors/FauziAdi.png"
     }
 ]

@@ -536,48 +536,66 @@ export default function Home() {
 
                 {/* Section 8: CTA Konsultasi */}
                 <section ref={packagesRef} className="py-10">
-                        <ConsultationSection/>
+                    <ConsultationSection />
                 </section>
 
                 {/* Section 9: List Mentor */}
                 <section
                     ref={listMentorRef}
-                    className="px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
+                    className="relative px-0 md:px-0 lg:px-0 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
                 >
                     {/* Gradient animasi */}
                     <div
-                        className={`absolute inset-0 z-0 transition-all duration-[2000ms] ease-out
-                        bg-gradient-to-b from-[#2F81FF]/50 via-transparent to-transparent
+                        className={`absolute inset-0 z-0 h-72 md:h-96 transition-all duration-[2000ms] ease-out bg-gradient-to-b from-[#4082E6] via-white to-transparent
                         ${
                             animate
                                 ? "animate-expandGradientX"
                                 : "opacity-0 scale-x-0 origin-center"
                         }
-                    `}
+                        `}
                     />
 
-                    <div className="container mx-auto relative mt-12 z-10 text-center">
-                        <h2 className="text-3xl font-bold mb-4">
+                    <div className="relative mt-12 z-10 text-center w-full max-w-full">
+                        <h2 className="text-5xl font-semibold mb-4">
                             Mentor di Kreavoks
                         </h2>
-                        <p className="text-gray-600 mb-8">
-                            Pilih mentor favoritmu, pelajari dari pengalaman
-                            mereka, dan eksplorasi project bareng.
+                        <p className="text-2xl text-gray-500 mb-8">
+                            Pengalamannya ga main-main
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-6">
-                            {mentors?.length > 0 ? (
-                                mentors.map((mentor, i) => (
-                                    <MentorCard
-                                        key={mentor.id || i}
-                                        mentor={mentor}
-                                    />
-                                ))
-                            ) : (
-                                <p className="col-span-full text-center text-gray-500">
-                                    Belum ada mentor tersedia saat ini.
-                                </p>
-                            )}
+                        <div className="relative w-full">
+                            {/* Gradient mask left */}
+                            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+                            {/* Gradient mask right */}
+                            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
+
+                            <div
+                                className="flex gap-8 overflow-x-auto py-2 px-8 md:px-16 scrollbar-hide"
+                                style={{
+                                    scrollSnapType: "x mandatory",
+                                    WebkitOverflowScrolling: "touch",
+                                }}
+                            >
+                                {mentors?.length > 0 ? (
+                                    mentors.map((mentor, i) => (
+                                        <div
+                                            key={mentor.id || i}
+                                            className="flex-shrink-0"
+                                            style={{
+                                                scrollSnapAlign: "center",
+                                                width: "260px",
+                                                maxWidth: "90vw",
+                                            }}
+                                        >
+                                            <MentorCard mentor={mentor} />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p className="col-span-full text-center text-gray-500">
+                                        Belum ada mentor tersedia saat ini.
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </section>
