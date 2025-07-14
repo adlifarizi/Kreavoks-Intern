@@ -24,7 +24,7 @@ export default function ConsultationSection() {
             </div>
             {/* Right: Button */}
             <a
-                href="https://wa.me/6281234567890"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:scale-105 transition duration-300 active:scale-95 select-none cursor-pointer inline-flex items-center bg-blue-500 rounded-full px-4 py-2.5 gap-2 text-white font-medium text-base md:text-xl z-50 whitespace-nowrap"
