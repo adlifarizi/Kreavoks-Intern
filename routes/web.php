@@ -78,9 +78,9 @@ Route::post('/logout', [AuthController::class, 'logout']);
 //
 // 3. Kemudian bikin route get berdasarkan data yang kamu pilih. bisa dilihat pada contoh di bawah ini
 
-Route::get('/adli/belajar-flutter-untuk-pemula', function () {
+Route::get('/rai/membangun-website-dengan-next-js', function () {
     $courses = json_decode(File::get(resource_path('js/data/dummyCourses.json')), true);
-    $course = collect($courses)->firstWhere('slug', 'belajar-flutter-untuk-pemula'); // Ganti sama slug yang kamu pilih
+    $course = collect($courses)->firstWhere('slug', 'membangun-website-dengan-next-js'); // Ganti sama slug yang kamu pilih
 
-    return Inertia::render('adli', ['course' => $course]);
+    return Inertia::render('rai', ['course' => $course]);
 });
