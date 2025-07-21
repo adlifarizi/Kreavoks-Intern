@@ -231,6 +231,53 @@ export default function Home() {
                     </div>
                 </section>
 
+                {/* New Section: Collaboration in Unity */}
+                <section className="relative bg-blue-50 py-12 z-[1]">
+                    <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
+                        <h2 className="text-[38px] font-semibold text-gray-800 mb-12">
+                            Kolaborasi Dalam Kesatuan
+                        </h2>
+                        <div className="flex flex-wrap justify-center items-center gap-8">
+                            <img
+                                src="/images/bank-sinarmas-logo.svg"
+                                alt="Bank Sinarmas"
+                                className="h-12"
+                            />
+                            <img
+                                src="/images/bank-sinarmas-logo.svg"
+                                alt="Bank Sinarmas"
+                                className="h-12"
+                            />
+                            <img
+                                src="/images/bank-sinarmas-logo.svg"
+                                alt="Bank Sinarmas"
+                                className="h-12"
+                            />
+
+                            <img
+                                src="/images/ipb-university-logo.svg"
+                                alt="IPB University"
+                                className="h-12"
+                            />
+                            <img
+                                src="/images/ipb-university-logo.svg"
+                                alt="IPB University"
+                                className="h-12"
+                            />
+                            <img
+                                src="/images/ipb-university-logo.svg"
+                                alt="IPB University"
+                                className="h-12"
+                            />
+                            <img
+                                src="/images/ipb-university-logo.svg"
+                                alt="IPB University"
+                                className="h-12"
+                            />
+                        </div>
+                    </div>
+                </section>
+
                 {/* Section 2: Company List Slider */}
                 <section ref={companiesRef} className="py-10 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
@@ -472,6 +519,106 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
+                </section>
+
+                {/* New Section: Promo */}
+                <section className="relative bg-white py-16 overflow-hidden w-full">
+                    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 px-6 md:px-12 lg:px-16 relative z-10">
+                        {/* Left - Promo Image */}
+                        <div className="w-full flex justify-center md:justify-start">
+                            <img
+                                src="/images/uiux-event-card.png"
+                                alt="Promo Kreavoks UI/UX Event"
+                                className="w-full max-w-[500px] rounded-3xl shadow-lg"
+                            />
+                        </div>
+
+                        {/* Right - Text & Countdown */}
+                        <div className="flex flex-col items-start gap-5">
+                            {/* Countdown Timer */}
+                            <div className="flex justify-center md:justify-start items-center gap-3 text-center text-sm md:text-base font-semibold flex-wrap w-full">
+                                {[
+                                    "13 Hari",
+                                    "8 Jam",
+                                    "12 Menit",
+                                    "3 Detik",
+                                ].map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="bg-white rounded-xl px-4 py-3 shadow text-blue-900 min-w-[60px]"
+                                    >
+                                        <p className="text-2xl md:text-2xl font-bold">
+                                            {item.split(" ")[0]}
+                                        </p>
+                                        <p className="text-sm md:text-sm">
+                                            {item.split(" ")[1]}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Headline */}
+                            <h2 className="text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-blue-300">
+                                Penawaran Menarik Nih Buat Kamu dari Kreavoks
+                            </h2>
+
+                            {/* Subtext */}
+                            <p className="text-gray-600 text-[18px] w-full">
+                                Tunggu apa lagi? Ambil kesempatan emas ini
+                                sekarang juga!
+                            </p>
+
+                            {/* Promo Code */}
+                            <div className="flex flex-col gap-3 w-full">
+                                <div className="flex justify-between items-center w-full">
+                                    <p className="text-[20px] text-gray-700">
+                                        Gunakan kode promo dan dapatkan diskon
+                                        hingga
+                                    </p>
+
+                                    {/* Diskon */}
+                                    <div className="bg-blue-500 text-yellow-200 w-[80px]     h-[60px] rounded-full flex items-center justify-center font-bold text-[20px] shrink-0">
+                                        20%
+                                    </div>
+                                </div>
+
+                                {/* Kode promo - Click to copy */}
+                                <div
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(
+                                            "KREAVOKSDIGITAL"
+                                        );
+                                        alert("Kode promo disalin!");
+                                    }}
+                                    className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto md:mx-0 transition hover:bg-gray-50"
+                                >
+                                    {/* Icon Copy */}
+                                    <div className="bg-white p-1 rounded-full">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5 text-gray-600"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-4 4h6a2 2 0 012 2v6a2 2 0 01-2 2h-6a2 2 0 01-2-2v-6a2 2 0 012-2z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <span className="text-lg md:text-base">
+                                        KREAVOKSDIGITAL
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Background Gradasi Blur */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200 rounded-full blur-3xl opacity-30 z-0" />
                 </section>
 
                 {/* Section 5: Event List */}
