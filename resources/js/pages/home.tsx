@@ -231,55 +231,58 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* New Section: Collaboration in Unity */}
-                <section className="relative bg-blue-50 py-12 z-[1]">
+                {/* Section 2: Collaboration in Unity */}
+                <section className="relative py-12 bg-blue-50">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
-                        <h2 className="text-[38px] font-semibold text-gray-800 mb-12">
+                        <h2 className="text-2xl md:text-4xl font-semibold text-gray-800 mb-12">
                             Kolaborasi Dalam Kesatuan
                         </h2>
-                        <div className="flex flex-wrap justify-center items-center gap-8">
-                            <img
-                                src="/images/bank-sinarmas-logo.svg"
-                                alt="Bank Sinarmas"
-                                className="h-12"
-                            />
-                            <img
-                                src="/images/bank-sinarmas-logo.svg"
-                                alt="Bank Sinarmas"
-                                className="h-12"
-                            />
-                            <img
-                                src="/images/bank-sinarmas-logo.svg"
-                                alt="Bank Sinarmas"
-                                className="h-12"
-                            />
-
-                            <img
-                                src="/images/ipb-university-logo.svg"
-                                alt="IPB University"
-                                className="h-12"
-                            />
-                            <img
-                                src="/images/ipb-university-logo.svg"
-                                alt="IPB University"
-                                className="h-12"
-                            />
-                            <img
-                                src="/images/ipb-university-logo.svg"
-                                alt="IPB University"
-                                className="h-12"
-                            />
-                            <img
-                                src="/images/ipb-university-logo.svg"
-                                alt="IPB University"
-                                className="h-12"
-                            />
+                        <div className="flex flex-col gap-10 items-center justify-center">
+                            <div className="flex flex-row flex-wrap justify-center items-center gap-10 sm:gap-20">
+                                <img
+                                    src="/images/bank-sinarmas-logo.svg"
+                                    alt="Bank Sinarmas"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/ecotainment.svg"
+                                    alt="Ecotainment"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/umkmgo.svg"
+                                    alt="UMKM Go"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/upala.svg"
+                                    alt="Upala"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            <div className="flex flex-row flex-wrap justify-center items-center gap-10 sm:gap-20">
+                                <img
+                                    src="/images/ipb-university-logo.svg"
+                                    alt="IPB University"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/dpma.svg"
+                                    alt="DPMA"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/ipb-university-logo.svg"
+                                    alt="IPB University"
+                                    className="h-14 hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Section 2: Company List Slider */}
-                <section ref={companiesRef} className="py-10 opacity-0">
+                {/* Section: Company List Slider */}
+                {/* <section ref={companiesRef} className="py-10 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
                             <h2 className="font-bold text-black text-xl md:text-2xl whitespace-nowrap">
@@ -341,7 +344,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Section 3: Youtube Introduction */}
                 <section
