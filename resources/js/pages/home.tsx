@@ -140,9 +140,13 @@ export default function Home() {
                             </p>
                             <h1 className="text-6xl md:text-6xl lg:text-7xl font-bold text-black leading-tight transition-transform duration-700 hover:scale-105">
                                 Masa Depan{" "}
-                                <span className="text-blue-500">Digital</span>{" "}
+                                <span className="bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">
+                                    Digital
+                                </span>{" "}
                                 Dimulai dari{" "}
-                                <span className="text-blue-500">Sini</span>.
+                                <span className="bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">
+                                    Sini.
+                                </span>
                             </h1>
                             <p className="text-gray-600 max-w-xl">
                                 Bersama kami, ubah ide Anda menjadi solusi
@@ -158,42 +162,51 @@ export default function Home() {
                                 , kami siap membantu Anda untuk masa depan
                                 teknologi.
                             </p>
-                            <button className="flex items-center gap-2 mt-4 px-6 py-2 text-blue-500 font-semibold bg-blue-50 border border-blue-500 rounded-full hover:scale-105 transition duration-300 hover:shadow-md active:scale-95">
-                                Get Started{" "}
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
+                            <div className="flex items-center gap-8 mt-4">
+                                <button className="flex items-center gap-2 px-6 py-2 text-blue-500 font-semibold bg-blue-50 border border-blue-500 rounded-full hover:scale-105 transition duration-300 hover:shadow-md active:scale-95">
+                                    Ayo Mulai{" "}
+                                    <i className="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <button className="flex items-center gap-2 text-blue-500 font-semibold hover:scale-105 transition duration-300 active:scale-95">
+                                    <i className="fa-solid fa-phone"></i>
+                                    <span className="underline">
+                                        Hubungi Kami
+                                    </span>
+                                </button>
+                            </div>
 
                             {/* Counter */}
-                            <div className="px-8 py-4 mt-6 w-full flex flex-col sm:flex-row items-center justify-between bg-[url(/images/backgrounds/CounterBg.svg)] bg-cover rounded-xl gap-4 sm:gap-0">
-                                <div className="flex flex-col items-center text-white text-center sm:text-left sm:items-start sm:border-none border-b border-white/30 pb-4 sm:pb-0 sm:mb-0 w-full sm:w-auto">
-                                    <p className="font-semibold text-lg md:text-2xl">
+                            <div className="py-6 mt-6 w-full flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white sm:border-none border border-blue-200 shadow-lg sm:shadow-none rounded-2xl gap-4 sm:gap-0">
+                                <div className="flex flex-col items-center text-center sm:text-left sm:items-start sm:border-none border-b border-blue-100 pb-4 sm:pb-0 sm:mb-0 w-full sm:w-auto">
+                                    <p className="font-semibold text-blue-500 text-xl md:text-2xl">
                                         <CountUp end={100} duration={3} />+
                                     </p>
                                     <p className="font-normal text-sm md:text-base">
-                                        Projects
+                                        Project Selesai
                                     </p>
                                 </div>
 
-                                <div className="flex flex-col items-center text-white text-center sm:text-left sm:items-start sm:border-none border-b border-white/30 pb-4 sm:pb-0 sm:mb-0 w-full sm:w-auto">
-                                    <p className="font-semibold text-lg md:text-2xl">
+                                <div className="flex flex-col items-center text-center sm:text-left sm:items-start sm:border-none border-b border-blue-100 pb-4 sm:pb-0 sm:mb-0 w-full sm:w-auto">
+                                    <p className="font-semibold text-blue-500 text-xl md:text-2xl">
                                         <CountUp end={200} duration={3} />+
                                     </p>
                                     <p className="font-normal text-sm md:text-base">
-                                        Courses
+                                        Program Belajar
                                     </p>
                                 </div>
 
-                                <div className="flex flex-col items-center text-white text-center sm:text-left sm:items-start w-full sm:w-auto">
-                                    <p className="font-semibold text-lg md:text-2xl">
+                                <div className="flex flex-col items-center text-center sm:text-left sm:items-start w-full sm:w-auto">
+                                    <p className="font-semibold text-blue-500 text-xl md:text-2xl">
                                         <CountUp
-                                            end={2800}
+                                            end={2.8}
                                             duration={3}
-                                            separator="."
+                                            decimals={1}
+                                            suffix="k"
                                         />
                                         +
                                     </p>
                                     <p className="font-normal text-sm md:text-base">
-                                        Users Active
+                                        Pengguna Aktif
                                     </p>
                                 </div>
                             </div>
@@ -205,13 +218,13 @@ export default function Home() {
                             <img
                                 src="/images/backgrounds/HeroBg.png"
                                 alt="Background"
-                                className="absolute -top-32 right-0 w-full md:max-w-[800px] h-auto"
+                                className="absolute -top-30 md:-top-48 right-10 w-full md:max-w-[800px] h-auto"
                             />
                             {/* Hero foreground image */}
                             <img
                                 src="/images/hero-people.png"
                                 alt="Hero"
-                                className="relative w-full md:max-w-[600px] h-auto -left-16 animate-float"
+                                className="relative w-full md:max-w-[600px] h-auto -left-6 animate-float"
                             />
                             <HeroLabels />
                         </div>

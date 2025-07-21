@@ -5,9 +5,9 @@ const HeroLabels: FC = () => {
     return (
         <>
             {/* 🔴 100% TERPERCAYA */}
-            <div className="absolute bottom-8 right-10 animate-wander-1 rotate-6">
+            <div className="absolute bottom-16 right-20 animate-wander-1 rotate-6">
                 <div className="flex items-center">
-                    <MousePointer2 size={28} className="text-[#EB524A] rotate-[-40deg]" />
+                    <MousePointer2 size={28} fill='#EB524A' className="text-[#EB524A] rotate-[-40deg]" />
                     <span className="bg-[#EB524A] text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">
                         100% TERPERCAYA
                     </span>
@@ -45,19 +45,19 @@ const HeroLabels: FC = () => {
                     <span className="bg-blue-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">
                         Solusi DIGITAL
                     </span>
-                    <MousePointer2 size={26} className="text-blue-500 rotate-[150deg]" />
+                    <MousePointer2 size={26} fill='#4082E6' className="text-blue-500 rotate-[135deg]" />
                 </div>
             </div>
 
             {/* 🟡 Pasti Murahh... (Diam) */}
-            <div className="absolute bottom-20 left-1/4 animate-pulse-float">
+            {/* <div className="absolute bottom-20 left-1/4 animate-pulse-float">
                 <div className="flex items-center justify-between gap-2 px-3 py-1 border bg-white/20 border-[#FEF747] rounded-md backdrop-blur-md shadow">
                     <ChartPieIcon size={28} className="text-[#FEF747]" />
                     <span className="text-[#FEF747] text-sm font-semibold">
                         Pasti Murahh, tapi<br></br> berkualitas
                     </span>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
