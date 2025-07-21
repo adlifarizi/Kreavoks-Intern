@@ -377,8 +377,8 @@ export default function Home() {
                             <div className="px-4 py-1.5 bg-blue-50 rounded-full text-blue-500 font-semibold">
                                 Service
                             </div>
-                            <h2 className="text-3xl md:text-4xl text-black font-medium leading-tight transition-transform duration-500 hover:translate-x-2">
-                                Our services solve all your problems and needs.
+                            <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
+                                Layanan Kami Dapat Jadi Solusi Masalah Kamu!
                             </h2>
                             <p className="text-gray-600 max-w-xl">
                                 Kami menawarkan solusi kreatif dan teknologi
@@ -458,30 +458,38 @@ export default function Home() {
                                                         alt="Website"
                                                     />
                                                 </div>
-                                                <p className="font-bold text-lg">
-                                                    Jasa pembuatan Website
-                                                    Profesional
-                                                </p>
+                                                <div className="flex flex-col items-start gap-2">
+                                                    <p className="font-bold text-lg">
+                                                        Jasa pembuatan Website
+                                                        Profesional
+                                                    </p>
+                                                    <button className="text-blue-500 font-medium hover:text-blue-600 transition duration-300">
+                                                        Lihat Detail{" "}
+                                                        <i className="fa-solid fa-arrow-right"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="relative flex flex-col">
-                                    <div className="h-full flex flex-col md:flex-row items-start md:items-center gap-3 rounded-3xl bg-white/60 p-4 shadow-[0px_0px_4px_rgba(0,0,0,0.1),_0px_0px_4px_rgba(0,0,0,0.1),_0px_0px_4px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:scale-105 hover:shadow-lg">
-                                        <div className="w-fit">
-                                            <div className="flex items-center justify-center h-14 w-14 p-3 rounded-full bg-blue-50">
-                                                <img
-                                                    src="images/icons/JasaDesainGrafis.svg"
-                                                    className="size-8"
-                                                    alt="Design"
-                                                />
-                                            </div>
+                                <div className="relative flex flex-col rounded-2xl bg-white/60 backdrop-blur-sm shadow-md p-6 transition-transform duration-500 hover:scale-105 hover:shadow-lg">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50">
+                                            <img
+                                                src="images/icons/JasaDesainGrafis.svg"
+                                                className="size-8"
+                                                alt="Design"
+                                            />
                                         </div>
                                         <p className="font-bold text-lg">
                                             Desain Grafis & User Interface
                                         </p>
                                     </div>
+                                    <button className="text-blue-500 font-medium flex items-center gap-2 hover:text-blue-600 transition duration-300 self-start">
+                                        Lihat detail
+                                        <i className="fa-solid fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
 
@@ -502,7 +510,7 @@ export default function Home() {
 
                                             {/* Content with background image */}
                                             <div className="shadow-md flex-3/4 flex flex-col justify-end bg-[url(/images/service-people.png)] bg-cover bg-right-top bg-no-repeat rounded-b-2xl rounded-tr-2xl bg-blue-500 p-6 pt-10">
-                                                <div className="w-fit z-10 mb-3">
+                                                <div className="w-fit z-10 mb-4">
                                                     <div className="flex items-center justify-center h-14 w-14 p-3 rounded-full bg-blue-50">
                                                         <img
                                                             src="images/icons/JasaPelatihanSkill.svg"
@@ -511,10 +519,13 @@ export default function Home() {
                                                         />
                                                     </div>
                                                 </div>
-                                                <p className="font-bold text-lg w-[60%] text-white z-10">
-                                                    Program Pelatihan Skill
-                                                    Digital
+                                                <p className="font-bold text-lg text-white z-10">
+                                                    Program Pelatihan Skill Digital
                                                 </p>
+                                                <button className="mt-2 text-white font-medium flex items-center gap-2 hover:text-blue-100 transition duration-300 self-start">
+                                                    Lihat detail
+                                                    <i className="fa-solid fa-arrow-right"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
