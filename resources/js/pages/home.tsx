@@ -571,11 +571,7 @@ export default function Home() {
                 <section className="relative bg-white py-16 overflow-hidden w-full">
                     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 px-6 md:px-12 lg:px-16 relative z-10">
                         {/* Left - Promo Card */}
-                        <div className="relative w-full flex justify-center md:justify-start">
-                            {/* Background gradient */}
-                            <div className="absolute inset-0 max-w-[480px] mx-auto rounded-[40px] bg-gradient-to-br from-blue-500 via-blue-400/80 to-white z-0" />
-
-                            {/* Konten di atas gradient */}
+                        <div className="relative w-full flex justify-center md:justify-start inset-0 max-w-[480px] mx-auto rounded-[40px] bg-gradient-to-br from-blue-500 via-blue-400/80 to-white hover:scale-105 transition-transform duration-500 shadow-lg">
                             <div className="relative w-full flex flex-col items-center justify-center">
                                 {/* Tulisan PROMO */}
                                 <div className="absolute -bottom-5 w-full flex justify-center pointer-events-none z-10">
@@ -583,10 +579,8 @@ export default function Home() {
                                         PROMO
                                     </span>
                                 </div>
-                                {/* Card stack effect - potrait */}
+                                {/* Card stack effect */}
                                 <div className="relative w-full max-w-[340px] min-h-[520px] flex flex-col items-center justify-center mx-auto z-20">
-                                    {/* Card shadow behind */}
-                                    <div className="absolute top-8 left-8 w-full h-full rounded-3xl bg-white opacity-40 blur-md z-0"></div>
                                     {/* Stack Event Cards */}
                                     <div className="relative h-[520px] w-full flex flex-col items-center justify-center">
                                         <div className="absolute w-full -rotate-8 opacity-60 shadow-xl pointer-events-none">
@@ -604,7 +598,7 @@ export default function Home() {
                         {/* Right - Text & Countdown */}
                         <div className="flex flex-col items-start gap-5">
                             {/* Countdown Timer */}
-                            <div className="flex justify-center md:justify-start items-center gap-3 md:gap-6 text-center flex-wrap bg-white rounded-2xl px-2 md:px-4 py-2 md:py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
+                            <div className="flex justify-center md:justify-start items-center gap-1 md:gap-4 text-center flex-wrap bg-white rounded-2xl px-2 md:px-4 py-2 md:py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
                                 {[
                                     { label: "Hari", value: timeLeft.days },
                                     { label: "Jam", value: timeLeft.hours },
@@ -625,16 +619,14 @@ export default function Home() {
                                 ))}
                             </div>
 
-                            {/* Headline */}
-                            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-300">
-                                Penawaran Menarik Nih Buat Kamu dari Kreavoks
-                            </h2>
-
-                            {/* Subtext */}
-                            <p className="text-gray-600 w-full">
-                                Tunggu apa lagi? Ambil kesempatan emas ini
-                                sekarang juga!
-                            </p>
+                            <div className="flex flex-col gap-2 mb-4 md:mb-6">
+                                <h2 className="text-3xl md:text-4xl max-w-lg bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight">
+                                    Penawaran Menarik Nih Buat Kamu dari Kreavoks
+                                </h2>
+                                <p className="text-gray-600 text-md max-w-xl">
+                                    Tunggu apa lagi? Ambil kesempatan emas ini sekarang juga!!
+                                </p>
+                            </div>
 
                             {/* Promo Code */}
                             <div className="flex flex-col gap-6 w-full">
@@ -658,7 +650,7 @@ export default function Home() {
                                         );
                                         alert("Kode promo disalin!");
                                     }}
-                                    className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto md:mx-0 transition hover:bg-gray-50"
+                                    className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto md:mx-0 transition hover:bg-gray-200 hover:scale-105"
                                 >
                                     {/* Icon Copy */}
                                     <div className="bg-white p-1 rounded-full">
@@ -694,12 +686,14 @@ export default function Home() {
                     ref={eventsRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
                 >
-                    <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
-                        Rekomendasi Buat Kamu
-                    </h2>
-                    <p className="text-gray-600 text-xl max-w-xl mb-6 md:mb-8">
-                        Gausah bingung, nih rekomendasi buat kamu
-                    </p>
+                    <div className="flex flex-col items-start gap-2 mb-4 md:mb-6">
+                        <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
+                            Rekomendasi Buat Kamu
+                        </h2>
+                        <p className="text-gray-600 text-xl max-w-xl">
+                            Gausah bingung, nih rekomendasi buat kamu
+                        </p>
+                    </div>
                     {/* <div className="flex items-center justify-between">
                         <div className="inline-flex items-center gap-3">
                             <img
@@ -726,7 +720,7 @@ export default function Home() {
                     />
                 </section>
 
-                {/* Section 6: Best Seller Course List
+                {/* Section: Best Seller Course List
                 <section
                     ref={coursesRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
@@ -790,12 +784,14 @@ export default function Home() {
                     />
 
                     <div className="relative mt-12 z-10 text-center w-full max-w-full">
-                        <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-                            Mentor di Kreavoks
-                        </h2>
-                        <p className="text-xl md:text-2xl text-gray-500 mb-8">
-                            Pengalamannya ga main-main
-                        </p>
+                        <div className="flex flex-col items-center gap-2 mb-4 md:mb-6">
+                            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
+                                Mentor di Kreavoks
+                            </h2>
+                            <p className="text-gray-600 text-xl max-w-xl">
+                                Pengalamannya ga main-main
+                            </p>
+                        </div>
 
                         <div className="relative w-full">
                             {/* Gradient mask left */}
@@ -839,12 +835,12 @@ export default function Home() {
                     ref={testimonialRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-12 w-full flex flex-col gap-6 z-10 opacity-0"
                 >
-                    <div>
-                        <h2 className="text-2xl md:text-3xl font-semibold">
-                            Hear Testimonial
+                    <div className="flex flex-col items-center gap-2 mb-4 md:mb-6">
+                        <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight">
+                            Mereka Sudah Buktikan
                         </h2>
-                        <p className="text-xl md:text-2xl text-gray-600">
-                            100+ Users Satisfied
+                        <p className="text-gray-600 text-xl max-w-xl">
+                            Kini saatnya kamu untuk buktikan
                         </p>
                     </div>
 
@@ -874,7 +870,7 @@ export default function Home() {
                         />
 
                         {/* Left Content */}
-                        <div className="flex-1 flex flex-col justify-center z-10 items-start gap-6 md:pr-8">
+                        <div className="flex-1 flex flex-col justify-center z-15 items-start gap-6 md:pr-8">
                             <h2 className="text-2xl md:text-4xl font-extrabold text-white leading-tight mb-2">
                                 Tertarik Jadi Mentor Di{" "}
                                 <span className="text-yellow-300">
@@ -898,7 +894,7 @@ export default function Home() {
                         </div>
 
                         {/* Gambar Ilustrasi */}
-                        <div className="hidden relative md:flex items-end justify-end md:absolute md:right-0 md:bottom-0 md:h-full md:w-auto z-10">
+                        <div className="hidden relative xl:flex items-end justify-end md:absolute md:right-0 md:bottom-0 md:h-full md:w-auto z-10">
                             <img
                                 src="/images/mentor-cta-people.png"
                                 alt="CTA Mentor"
