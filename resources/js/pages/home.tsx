@@ -115,6 +115,37 @@ export default function Home() {
         };
     }, []);
 
+    // Countdown timer state
+    const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+    });
+
+    useEffect(() => {
+        const targetDate = new Date("2025-08-17T00:00:00");
+
+        const timer = setInterval(() => {
+            const now = new Date();
+            const diff = targetDate.getTime() - now.getTime();
+
+            if (diff <= 0) {
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+                clearInterval(timer);
+            } else {
+                setTimeLeft({
+                    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((diff / (1000 * 60)) % 60),
+                    seconds: Math.floor((diff / 1000) % 60),
+                });
+            }
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <AppLayout>
             <Head title="Kreavoks" />
@@ -520,7 +551,8 @@ export default function Home() {
                                                     </div>
                                                 </div>
                                                 <p className="font-bold text-lg text-white z-10">
-                                                    Program Pelatihan Skill Digital
+                                                    Program Pelatihan Skill
+                                                    Digital
                                                 </p>
                                                 <button className="mt-2 text-white font-medium flex items-center gap-2 hover:text-blue-100 transition duration-300 self-start">
                                                     Lihat detail
@@ -535,63 +567,85 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* New Section: Promo */}
+                {/* Section 5: Promo */}
                 <section className="relative bg-white py-16 overflow-hidden w-full">
                     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 px-6 md:px-12 lg:px-16 relative z-10">
-                        {/* Left - Promo Image */}
-                        <div className="w-full flex justify-center md:justify-start">
-                            <img
-                                src="/images/uiux-event-card.png"
-                                alt="Promo Kreavoks UI/UX Event"
-                                className="w-full max-w-[500px] rounded-3xl shadow-lg"
-                            />
+                        {/* Left - Promo Card */}
+                        <div className="relative w-full flex justify-center md:justify-start">
+                            {/* Background gradient */}
+                            <div className="absolute inset-0 max-w-[480px] mx-auto rounded-[40px] bg-gradient-to-br from-blue-500 via-blue-400/80 to-white z-0" />
+
+                            {/* Konten di atas gradient */}
+                            <div className="relative w-full flex flex-col items-center justify-center">
+                                {/* Tulisan PROMO */}
+                                <div className="absolute -bottom-5 w-full flex justify-center pointer-events-none z-10">
+                                    <span className="text-[80px] md:text-[125px] font-extrabold text-black/8 tracking-tight select-none leading-none">
+                                        PROMO
+                                    </span>
+                                </div>
+                                {/* Card stack effect - potrait */}
+                                <div className="relative w-full max-w-[340px] min-h-[520px] flex flex-col items-center justify-center mx-auto z-20">
+                                    {/* Card shadow behind */}
+                                    <div className="absolute top-8 left-8 w-full h-full rounded-3xl bg-white opacity-40 blur-md z-0"></div>
+                                    {/* Stack Event Cards */}
+                                    <div className="relative h-[520px] w-full flex flex-col items-center justify-center">
+                                        <div className="absolute w-full -rotate-8 opacity-60 shadow-xl pointer-events-none">
+                                            <EventCard event={events[0]} />
+                                        </div>
+                                        {/* Main promo event card */}
+                                        <div className="relative w-full z-10">
+                                            <EventCard event={events[3]} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Right - Text & Countdown */}
                         <div className="flex flex-col items-start gap-5">
                             {/* Countdown Timer */}
-                            <div className="flex justify-center md:justify-start items-center gap-3 text-center text-sm md:text-base font-semibold flex-wrap w-full">
+                            <div className="flex justify-center md:justify-start items-center gap-3 md:gap-6 text-center flex-wrap bg-white rounded-2xl px-2 md:px-4 py-2 md:py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
                                 {[
-                                    "13 Hari",
-                                    "8 Jam",
-                                    "12 Menit",
-                                    "3 Detik",
+                                    { label: "Hari", value: timeLeft.days },
+                                    { label: "Jam", value: timeLeft.hours },
+                                    { label: "Menit", value: timeLeft.minutes },
+                                    { label: "Detik", value: timeLeft.seconds },
                                 ].map((item, idx) => (
                                     <div
                                         key={idx}
-                                        className="bg-white rounded-xl px-4 py-3 shadow text-blue-900 min-w-[60px]"
+                                        className="px-3 md:px-6 py-1 md:py-2 min-w-[100px]"
                                     >
-                                        <p className="text-2xl md:text-2xl font-bold">
-                                            {item.split(" ")[0]}
+                                        <p className="text-2xl md:text-4xl font-semibold">
+                                            {item.value}
                                         </p>
-                                        <p className="text-sm md:text-sm">
-                                            {item.split(" ")[1]}
+                                        <p className="text-xs md:text-sm font-medium">
+                                            {item.label}
                                         </p>
                                     </div>
                                 ))}
                             </div>
 
                             {/* Headline */}
-                            <h2 className="text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-blue-300">
+                            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-blue-500 to-blue-300">
                                 Penawaran Menarik Nih Buat Kamu dari Kreavoks
                             </h2>
 
                             {/* Subtext */}
-                            <p className="text-gray-600 text-[18px] w-full">
+                            <p className="text-gray-600 w-full">
                                 Tunggu apa lagi? Ambil kesempatan emas ini
                                 sekarang juga!
                             </p>
 
                             {/* Promo Code */}
-                            <div className="flex flex-col gap-3 w-full">
+                            <div className="flex flex-col gap-6 w-full">
                                 <div className="flex justify-between items-center w-full">
-                                    <p className="text-[20px] text-gray-700">
+                                    <p className="font-semibold text-lg md:text-xl w-xs">
                                         Gunakan kode promo dan dapatkan diskon
                                         hingga
                                     </p>
 
                                     {/* Diskon */}
-                                    <div className="bg-blue-500 text-yellow-200 w-[80px]     h-[60px] rounded-full flex items-center justify-center font-bold text-[20px] shrink-0">
+                                    <div className="bg-blue-500 text-yellow-300 px-5 py-3 rounded-full flex items-center justify-center font-bold text-xl shrink-0">
                                         20%
                                     </div>
                                 </div>
