@@ -689,12 +689,18 @@ export default function Home() {
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200 rounded-full blur-3xl opacity-30 z-0" />
                 </section>
 
-                {/* Section 5: Event List */}
+                {/* Section 6: Rekomendasi */}
                 <section
                     ref={eventsRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
                 >
-                    <div className="flex items-center justify-between">
+                    <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
+                        Rekomendasi Buat Kamu
+                    </h2>
+                    <p className="text-gray-600 text-xl max-w-xl mb-6 md:mb-8">
+                        Gausah bingung, nih rekomendasi buat kamu
+                    </p>
+                    {/* <div className="flex items-center justify-between">
                         <div className="inline-flex items-center gap-3">
                             <img
                                 src="images/icons/UpcomingEvents.svg"
@@ -712,7 +718,7 @@ export default function Home() {
                             See all{" "}
                             <i className="fa-solid fa-chevron-right"></i>
                         </Link>
-                    </div>
+                    </div> */}
 
                     <Slider
                         items={events}
@@ -720,7 +726,7 @@ export default function Home() {
                     />
                 </section>
 
-                {/* Section 6: Best Seller Course List */}
+                {/* Section 6: Best Seller Course List
                 <section
                     ref={coursesRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
@@ -751,7 +757,7 @@ export default function Home() {
                             <CourseCard course={item} />
                         )}
                     />
-                </section>
+                </section> */}
 
                 {/* Section 7: Service Packages */}
                 <section ref={packagesRef} className="py-10">
