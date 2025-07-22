@@ -80,7 +80,7 @@ export default function ServicePackageSection({ servicePackages }: Props) {
                             <ServicePackageCard key={i} paket={paket} />
                         ))}
 
-                        <div className="col-span-3 w-full relative bg-gradient-to-r from-[#0359DB] via-[#0359DB] to-white/60 rounded-lg px-4 py-4 md:py-6 flex flex-col md:flex-row gap-2 items-start md:items-center justify-between overflow-hidden">
+                        {/* <div className="col-span-3 w-full relative bg-gradient-to-r from-[#0359DB] via-[#0359DB] to-white/60 rounded-lg px-4 py-4 md:py-6 flex flex-col md:flex-row gap-2 items-start md:items-center justify-between overflow-hidden">
                             <CheckerboardBackground seed={53} mask={"left"} className="z-0" />
                             <div className="text-white flex flex-col justify-start z-50">
                                 <p className="text-xl md:text-2xl font-semibold">Masih Bingung atau belum<br /> merasa ada yang cocok?</p>
@@ -90,11 +90,11 @@ export default function ServicePackageSection({ servicePackages }: Props) {
                                 <IoLogoWhatsapp size={18} />
                                 Hubungi Kami
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 )}
 
-                {/* Versi mobile untuk banner CTA */}
+                {/* Versi mobile untuk banner CTA
                 <div className="md:hidden w-full relative bg-gradient-to-r from-[#0359DB] via-[#0359DB] to-white/60 rounded-lg px-4 py-4 md:py-6 flex flex-col md:flex-row gap-2 items-start md:items-center justify-between overflow-hidden">
                     <CheckerboardBackground seed={53} mask={"left"} className="z-0" />
                     <div className="text-white flex flex-col justify-start z-50">
@@ -105,7 +105,7 @@ export default function ServicePackageSection({ servicePackages }: Props) {
                         <IoLogoWhatsapp size={18} />
                         Hubungi Kami
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
 
