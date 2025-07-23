@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Head, Link, usePage, useForm } from "@inertiajs/react";
 import CountUp from "react-countup";
+import { Fingerprint, ShieldUser, UsersRound, SquareTerminal, SmilePlus } from "lucide-react";
 
 // Layouts
 import AppLayout from "@/layouts/app-layout";
@@ -621,10 +622,12 @@ export default function Home() {
 
                             <div className="flex flex-col gap-2 mb-4 md:mb-6">
                                 <h2 className="text-3xl md:text-4xl max-w-lg bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight">
-                                    Penawaran Menarik Nih Buat Kamu dari Kreavoks
+                                    Penawaran Menarik Nih Buat Kamu dari
+                                    Kreavoks
                                 </h2>
                                 <p className="text-gray-600 text-md max-w-xl">
-                                    Tunggu apa lagi? Ambil kesempatan emas ini sekarang juga!!
+                                    Tunggu apa lagi? Ambil kesempatan emas ini
+                                    sekarang juga!!
                                 </p>
                             </div>
 
@@ -762,12 +765,108 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Section 8: CTA Konsultasi */}
+                {/* Section 8: Kenapa Kreavoks */}
+                <section className="w-full px-4 md:px-10 lg:px-24 py-12 flex flex-col md:flex-row gap-20 xl:gap-40 items-start">
+                    {/* Left Side */}
+                    <div className="flex-[0_0_480px] max-w-[480px] flex flex-col gap-4">
+                        <div className="flex flex-col items-start gap-2 mb-4 md:mb-6">
+                            <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
+                                Kenapa Harus Kreavoks?
+                            </h2>
+                            <p className="text-gray-600 text-xl max-w-xl">
+                                Nih 5 alasan kenapa kreavoks tempat terbaik buat
+                                solusi digitalmu!
+                            </p>
+                        </div>
+                        <div className="hover:scale-105 transition-transform duration-500 shadow-lg">
+                            <img
+                                src="/images/why-people.png"
+                                alt="Kenapa Kreavoks"
+                                className="object-cover w-full"
+                            />
+                        </div>
+                    </div>
+                    {/* Right Side */}
+                    <div className="flex-1 flex flex-col gap-8">
+                        {/* Card utama */}
+                        <div className="bg-blue-50 rounded-lg p-4 mb-2 shadow-sm border-b-4 border-blue-500 hover:scale-105 transition-transform duration-500">
+                            <div className="flex items-center gap-6">
+                                <Fingerprint className="w-10 h-10 text-blue-500" />
+                                <div>
+                                    <h3 className="text-xl md:text-2xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500">
+                                        Solusi Digital Terpadu
+                                    </h3>
+                                    <p className="text-sm max-w-xl">
+                                        Layanan lengkap mulai dari desain,
+                                        pengembangan, hingga strategi digital
+                                        yang menyeluruh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {/* List */}
+                        <div className="p-4 flex flex-col gap-10">
+                            <div className="flex items-center gap-6">
+                                <ShieldUser className="w-8 h-8" />
+                                <div>
+                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
+                                        Tim Profesional & Berpengalaman
+                                    </p>
+                                    <p>
+                                        Didukung oleh tim ahli di berbagai
+                                        bidang, Kreavoks siap mewujudkan ide-ide
+                                        Anda menjadi kenyataan.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-6">
+                                <UsersRound className="w-8 h-8" />
+                                <div>
+                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
+                                        Pendekatan Kolaboratif
+                                    </p>
+                                    <p>
+                                        Didukung oleh tim ahli di berbagai
+                                        bidang, Kreavoks siap mewujudkan ide-ide
+                                        Anda menjadi kenyataan.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-6">
+                                <SquareTerminal className="w-8 h-8" />
+                                <div>
+                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
+                                        Pembelajaran Berbasis Proyek
+                                    </p>
+                                    <p>
+                                        Pembelajaran yang melibatkan langsung
+                                        dalam proyek nyata.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-6">
+                                <SmilePlus className="w-8 h-8" />
+                                <div>
+                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
+                                        Mengedepankan Kepuasan Klien
+                                    </p>
+                                    <p>
+                                        Didukung oleh tim ahli di berbagai
+                                        bidang, Kreavoks siap mewujudkan ide-ide
+                                        Anda menjadi kenyataan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Section 9: CTA Konsultasi */}
                 <section ref={packagesRef} className="py-10">
                     <ConsultationSection />
                 </section>
 
-                {/* Section 9: List Mentor */}
+                {/* Section 10: List Mentor */}
                 <section
                     ref={listMentorRef}
                     className="relative px-0 md:px-0 lg:px-0 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
@@ -830,7 +929,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Section 10: Testimonial */}
+                {/* Section 11: Testimonial */}
                 <section
                     ref={testimonialRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-12 w-full flex flex-col gap-6 z-10 opacity-0"
@@ -847,7 +946,7 @@ export default function Home() {
                     <TestimonialSlider testimonials={testimonials} />
                 </section>
 
-                {/* Section 11: CTA Mentor */}
+                {/* Section 12: CTA Mentor */}
                 <section className="relative px-2 md:px-10 lg:px-24 py-10 w-full flex flex-col gap-6 z-10">
                     {/* Card */}
                     <div
