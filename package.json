@@ -13,6 +13,7 @@
         "@types/react-dom": "^19.0.2",
         "@vitejs/plugin-react": "^4.3.4",
         "concurrently": "^9.0.1",
+        "flag-icons": "^7.5.0",
         "laravel-vite-plugin": "^1.2.0",
         "lucide-react": "^0.507.0",
         "react": "^19.0.0",
