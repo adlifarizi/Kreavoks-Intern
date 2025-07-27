@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { Head, usePage } from "@inertiajs/react"
-import AppLayout from "@/layouts/app-layout"
-import type { SharedData } from "@/types"
-import { useEffect, useRef, useState } from "react"
+import { Head, usePage } from "@inertiajs/react";
+import AppLayout from "@/layouts/app-layout";
+import type { SharedData } from "@/types";
+import { useEffect, useRef, useState } from "react";
 
 type member = {
-    id: string
-    name: string
-    position: string
-    image: string
+    id: string;
+    name: string;
+    position: string;
+    image: string;
     social: {
-        linkedin: string
-        twitter: string
-        instagram: string
-    }
-}
+        linkedin: string;
+        twitter: string;
+        instagram: string;
+    };
+};
 
 export default function About() {
-    <Head title="Kreavoks | About" />
-    const { auth } = usePage<SharedData>().props
+    <Head title="Kreavoks | About" />;
+    const { auth } = usePage<SharedData>().props;
 
     // Team members data
     const teamMembers = [
@@ -78,7 +78,7 @@ export default function About() {
                 instagram: "#",
             },
         },
-    ]
+    ];
 
     // Company stats
     const stats = [
@@ -86,34 +86,34 @@ export default function About() {
         { id: 2, value: "100+", label: "Proyek Selesai" },
         { id: 3, value: "50+", label: "Klien Puas" },
         { id: 4, value: "2,800+", label: "Peserta Kursus" },
-    ]
+    ];
 
-    const [isPageLoaded, setIsPageLoaded] = useState(false)
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     // Refs for scroll animations
-    const heroRef = useRef<HTMLDivElement>(null)
-    const storyRef = useRef<HTMLDivElement>(null)
-    const missionVisionRef = useRef<HTMLDivElement>(null)
-    const advantagesRef = useRef<HTMLDivElement>(null)
-    const statsRef = useRef<HTMLDivElement>(null)
-    const teamRef = useRef<HTMLDivElement>(null)
-    const ctaRef = useRef<HTMLDivElement>(null)
+    const heroRef = useRef<HTMLDivElement>(null);
+    const storyRef = useRef<HTMLDivElement>(null);
+    const missionVisionRef = useRef<HTMLDivElement>(null);
+    const advantagesRef = useRef<HTMLDivElement>(null);
+    const statsRef = useRef<HTMLDivElement>(null);
+    const teamRef = useRef<HTMLDivElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
 
     // Page load animation
     useEffect(() => {
-        setIsPageLoaded(true)
+        setIsPageLoaded(true);
 
         // Set up intersection observer for scroll animations
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("animate-in")
+                        entry.target.classList.add("animate-in");
                     }
-                })
+                });
             },
-            { threshold: 0.1 },
-        )
+            { threshold: 0.1 }
+        );
 
         // Observe elements
         const refs = [
@@ -124,48 +124,66 @@ export default function About() {
             statsRef,
             teamRef,
             ctaRef,
-        ]
+        ];
 
         refs.forEach((ref) => {
-            if (ref.current) observer.observe(ref.current)
-        })
+            if (ref.current) observer.observe(ref.current);
+        });
 
         return () => {
             refs.forEach((ref) => {
-                if (ref.current) observer.unobserve(ref.current)
-            })
-        }
-    }, [])
+                if (ref.current) observer.unobserve(ref.current);
+            });
+        };
+    }, []);
 
     return (
         <AppLayout>
             <Head title="About Us - Kreavoks" />
             <div
-                className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${isPageLoaded ? "opacity-100" : "opacity-0"}`}
+                className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${
+                    isPageLoaded ? "opacity-100" : "opacity-0"
+                }`}
             >
                 {/* Hero Section */}
-                <section ref={heroRef} className="relative py-20 overflow-hidden bg-[radial-gradient(#e5e7eb_2px,transparent_2px)] [background-size:16px_16px] opacity-0">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-white pointer-events-none"></div>
-
-                    {/* Circular accent */}
-                    <div className="absolute -left-20 top-20 w-40 h-40 rounded-full bg-blue-500/10 animate-wander-3"></div>
-                    <div className="absolute right-20 bottom-10 w-24 h-24 rounded-full bg-yellow-300/20 animate-wander-2"></div>
-
-                    <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-                        <div className="max-w-3xl">
-                            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                                Tentang <span className="text-blue-500">Kreavoks</span>
-                            </h1>
-                            <p className="text-lg text-gray-600 mb-8">
-                                Kami adalah agensi digital yang berdedikasi untuk membantu bisnis dan individu mengembangkan kehadiran
-                                digital mereka dan meningkatkan keterampilan teknologi untuk masa depan.
-                            </p>
+                <section
+                    ref={heroRef}
+                    className="relative py-12 md:py-20 bg-[#F4F8FE] overflow-hidden opacity-0"
+                >
+                    <div className="container mx-auto px-6 md:px-12 lg:px-16">
+                        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                            {/* Left: Text */}
+                            <div className="flex-1">
+                                <p className="text-blue-500 font-bold text-lg mb-2">
+                                    Tentang Kreavoks
+                                </p>
+                                <h1 className="text-4xl md:text-6xl font-extrabold text-black mb-6 leading-tight transition-transform duration-500 hover:translate-x-2">
+                                    Apa itu <br className="hidden md:block" />{" "}
+                                    Kreavoks?
+                                </h1>
+                                <p className="text-base md:text-lg text-gray-700">
+                                    Kami adalah agensi digital yang berdedikasi
+                                    untuk membantu bisnis dan individu
+                                    mengembangkan kehadiran digital mereka dan
+                                    meningkatkan keterampilan teknologi untuk
+                                    masa depan.
+                                </p>
+                            </div>
+                            {/* Right: Image */}
+                            <div className="flex-1 flex justify-center">
+                                <img
+                                    src="/images/sv.png"
+                                    alt="Kreavoks Office"
+                                    className="w-full max-w-xl rounded-2xl object-cover shadow-md"
+                                />
+                            </div>
                         </div>
                     </div>
+                    {/* Background accent shape */}
+                    <div className="hidden lg:block absolute left-0 top-0 w-2/3 h-full rounded-br-[300px] bg-blue-50 -z-10"></div>
                 </section>
 
-                {/* Our Story Section */}
+                {/* Our Story Section
                 <section ref={storyRef} className="py-16 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -207,15 +225,21 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
-                {/* Mission & Vision */}
-                <section ref={missionVisionRef} className="py-16 bg-blue-50 opacity-0">
+                {/* Mission & Vision
+                <section
+                    ref={missionVisionRef}
+                    className="py-16 bg-blue-50 opacity-0"
+                >
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="text-center max-w-3xl mx-auto mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Misi & Visi Kami</h2>
+                            <h2 className="text-3xl font-bold mb-4">
+                                Misi & Visi Kami
+                            </h2>
                             <p className="text-gray-700">
-                                Kami berkomitmen untuk memberikan solusi digital terbaik dan pendidikan yang berkualitas
+                                Kami berkomitmen untuk memberikan solusi digital
+                                terbaik dan pendidikan yang berkualitas
                             </p>
                         </div>
 
@@ -229,23 +253,40 @@ export default function About() {
                                     <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                                         <i className="fa-solid fa-bullseye text-2xl text-blue-500"></i>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-4">Misi</h3>
+                                    <h3 className="text-2xl font-bold mb-4">
+                                        Misi
+                                    </h3>
                                     <ul className="space-y-3">
                                         <li className="flex items-start gap-3">
                                             <i className="fa-solid fa-check text-blue-500 mt-1"></i>
-                                            <p>Menyediakan solusi digital yang inovatif dan berkualitas tinggi</p>
+                                            <p>
+                                                Menyediakan solusi digital yang
+                                                inovatif dan berkualitas tinggi
+                                            </p>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <i className="fa-solid fa-check text-blue-500 mt-1"></i>
-                                            <p>Memberdayakan individu dan bisnis melalui pendidikan digital yang praktis</p>
+                                            <p>
+                                                Memberdayakan individu dan
+                                                bisnis melalui pendidikan
+                                                digital yang praktis
+                                            </p>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <i className="fa-solid fa-check text-blue-500 mt-1"></i>
-                                            <p>Menciptakan ekosistem digital yang inklusif dan dapat diakses oleh semua</p>
+                                            <p>
+                                                Menciptakan ekosistem digital
+                                                yang inklusif dan dapat diakses
+                                                oleh semua
+                                            </p>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <i className="fa-solid fa-check text-blue-500 mt-1"></i>
-                                            <p>Mendorong inovasi dan kreativitas dalam setiap proyek yang kami kerjakan</p>
+                                            <p>
+                                                Mendorong inovasi dan
+                                                kreativitas dalam setiap proyek
+                                                yang kami kerjakan
+                                            </p>
                                         </li>
                                     </ul>
                                 </div>
@@ -260,31 +301,142 @@ export default function About() {
                                     <div className="w-16 h-16 bg-yellow-300/10 rounded-full flex items-center justify-center mb-6">
                                         <i className="fa-solid fa-eye text-2xl text-yellow-500"></i>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-4">Visi</h3>
+                                    <h3 className="text-2xl font-bold mb-4">
+                                        Visi
+                                    </h3>
                                     <p className="text-gray-700 mb-4">
-                                        Menjadi pemimpin dalam transformasi digital di Indonesia dengan menyediakan solusi teknologi yang
-                                        inovatif dan pendidikan digital yang berkualitas.
+                                        Menjadi pemimpin dalam transformasi
+                                        digital di Indonesia dengan menyediakan
+                                        solusi teknologi yang inovatif dan
+                                        pendidikan digital yang berkualitas.
                                     </p>
                                     <p className="text-gray-700 mb-4">
-                                        Kami membayangkan masa depan di mana setiap bisnis dan individu memiliki akses ke alat dan
-                                        pengetahuan digital yang mereka butuhkan untuk berkembang di era digital.
+                                        Kami membayangkan masa depan di mana
+                                        setiap bisnis dan individu memiliki
+                                        akses ke alat dan pengetahuan digital
+                                        yang mereka butuhkan untuk berkembang di
+                                        era digital.
                                     </p>
                                     <p className="text-gray-700">
-                                        Dengan fokus pada kualitas, inovasi, dan pendidikan, kami bertujuan untuk memberdayakan generasi
-                                        berikutnya dari profesional digital Indonesia.
+                                        Dengan fokus pada kualitas, inovasi, dan
+                                        pendidikan, kami bertujuan untuk
+                                        memberdayakan generasi berikutnya dari
+                                        profesional digital Indonesia.
                                     </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> */}
+
+                {/* Mission & Vision */}
+                <section
+                    ref={missionVisionRef}
+                    className="py-16 bg-white opacity-0"
+                >
+                    <div className="container mx-auto px-6 md:px-12 lg:px-16">
+                        {/* Vision */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                            {/* Left: Image */}
+                            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+                                <div className="relative hover:scale-105 transition-transform duration-500">
+                                    <img
+                                        src="/images/vision-1.png"
+                                        alt="Vision-1"
+                                        className="w-[320px] md:w-[360px] rounded-2xl shadow-lg"
+                                    />
+                                    <img
+                                        src="/images/vision-2.png"
+                                        alt="Vision-2"
+                                        className="absolute bottom-10 -right-16 w-40 md:w-52 rounded-xl shadow-xl"
+                                    />
+                                </div>
+                            </div>
+                            {/* Right: Text */}
+                            <div className="order-1 lg:order-2 group">
+                                <h2 className="text-2xl md:text-3xl font-extrabold text-blue-500 mb-6 group-hover:translate-x-2 transition-transform duration-500">
+                                    Visi Kami
+                                </h2>
+                                <ul className="space-y-4 text-base md:text-lg">
+                                    <li className="flex items-start gap-3">
+                                        <span className="mt-1 text-xl">✔</span>
+                                        Menyediakan solusi digital yang inovatif
+                                        dan berkualitas tinggi
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="mt-1 text-xl">✔</span>
+                                        Memberdayakan individu dan bisnis
+                                        melalui pendidikan digital yang praktis
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="mt-1 text-xl">✔</span>
+                                        Menciptakan ekosistem digital yang
+                                        inklusif dan dapat diakses oleh semua
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="mt-1 text-xl">✔</span>
+                                        Mendorong inovasi dan kreativitas dalam
+                                        setiap proyek yang kami kerjakan
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {/* Mission */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Left: Text */}
+                            <div className="group">
+                                <h2 className="text-2xl md:text-3xl font-extrabold text-blue-500 mb-6 group-hover:translate-x-2 transition-transform duration-500">
+                                    Misi Kami
+                                </h2>
+                                <p className="text-base md:text-lg text-gray-700 mb-4">
+                                    Menjadi pemimpin dalam transformasi digital
+                                    di Indonesia dengan menyediakan solusi
+                                    teknologi yang inovatif dan menyediakan
+                                    solusi digital yang berkualitas.
+                                </p>
+                                <p className="text-base md:text-lg text-gray-700 mb-4">
+                                    Kami membayangkan masa depan di mana setiap
+                                    bisnis dan individu memiliki akses ke alat
+                                    dan pengetahuan digital yang mereka butuhkan
+                                    untuk berkembang di era digital.
+                                </p>
+                                <p className="text-base md:text-lg text-gray-700">
+                                    Dengan fokus pada kualitas, inovasi, dan
+                                    pendidikan, kami bertujuan untuk
+                                    memberdayakan generasi berikutnya dari
+                                    profesional digital Indonesia.
+                                </p>
+                            </div>
+                            {/* Right: Image */}
+                            <div className="flex justify-center lg:justify-end">
+                                <div className="relative hover:scale-105 transition-transform duration-500">
+                                    <img
+                                        src="/images/mission-1.png"
+                                        alt="Mission-1"
+                                        className="w-[300px] md:w-[320px] rounded-2xl shadow-lg"
+                                    />
+                                    <img
+                                        src="/images/mission-2.png"
+                                        alt="Mission-2"
+                                        className="absolute top-16 -left-16 w-40 md:w-52 rounded-xl shadow-xl border-4 border-white bg-white"
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Our Advantages */}
+                {/* Why Kreavoks */}
                 <section ref={advantagesRef} className="py-16 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
+                        <div className="w-32 lg:w-120 h-1 bg-blue-500 mx-auto mb-8 rounded-full"></div>
                         <div className="text-center max-w-3xl mx-auto mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Keunggulan Kami</h2>
-                            <p className="text-gray-700">Apa yang membuat Kreavoks berbeda dari yang lain</p>
+                            <h2 className="text-2xl lg:text-4xl font-bold mb-4">
+                                Kenapa Kreavoks?
+                            </h2>
+                            {/* <p className="text-gray-700">
+                                Apa yang membuat Kreavoks berbeda dari yang lain
+                            </p> */}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -292,9 +444,13 @@ export default function About() {
                                 <div className="w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
                                     <i className="fa-solid fa-code text-xl text-blue-500"></i>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Teknologi Terkini</h3>
+                                <h3 className="text-xl font-bold mb-2">
+                                    Teknologi Terkini
+                                </h3>
                                 <p className="text-gray-600">
-                                    Kami selalu menggunakan teknologi terbaru dan terbaik untuk setiap proyek yang kami kerjakan.
+                                    Kami selalu menggunakan teknologi terbaru
+                                    dan terbaik untuk setiap proyek yang kami
+                                    kerjakan.
                                 </p>
                             </div>
 
@@ -302,9 +458,13 @@ export default function About() {
                                 <div className="w-14 h-14 bg-yellow-300/10 rounded-full flex items-center justify-center mb-4">
                                     <i className="fa-solid fa-users text-xl text-yellow-500"></i>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Tim Profesional</h3>
+                                <h3 className="text-xl font-bold mb-2">
+                                    Tim Profesional
+                                </h3>
                                 <p className="text-gray-600">
-                                    Tim kami terdiri dari profesional berpengalaman dengan keahlian di berbagai bidang digital.
+                                    Tim kami terdiri dari profesional
+                                    berpengalaman dengan keahlian di berbagai
+                                    bidang digital.
                                 </p>
                             </div>
 
@@ -312,9 +472,13 @@ export default function About() {
                                 <div className="w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
                                     <i className="fa-solid fa-graduation-cap text-xl text-blue-500"></i>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Kurikulum Terstruktur</h3>
+                                <h3 className="text-xl font-bold mb-2">
+                                    Kurikulum Terstruktur
+                                </h3>
                                 <p className="text-gray-600">
-                                    Program pelatihan kami dirancang dengan kurikulum yang terstruktur dan sesuai kebutuhan industri.
+                                    Program pelatihan kami dirancang dengan
+                                    kurikulum yang terstruktur dan sesuai
+                                    kebutuhan industri.
                                 </p>
                             </div>
 
@@ -322,9 +486,13 @@ export default function About() {
                                 <div className="w-14 h-14 bg-yellow-300/10 rounded-full flex items-center justify-center mb-4">
                                     <i className="fa-solid fa-headset text-xl text-yellow-500"></i>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Dukungan Penuh</h3>
+                                <h3 className="text-xl font-bold mb-2">
+                                    Dukungan Penuh
+                                </h3>
                                 <p className="text-gray-600">
-                                    Kami memberikan dukungan penuh kepada klien dan peserta kursus kami sepanjang perjalanan mereka.
+                                    Kami memberikan dukungan penuh kepada klien
+                                    dan peserta kursus kami sepanjang perjalanan
+                                    mereka.
                                 </p>
                             </div>
                         </div>
@@ -332,13 +500,18 @@ export default function About() {
                 </section>
 
                 {/* Stats Section */}
-                <section ref={statsRef} className="py-16 bg-blue-500 text-white opacity-0">
+                <section
+                    ref={statsRef}
+                    className="py-16 bg-blue-500 text-white opacity-0"
+                >
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             {stats.map((stat) => (
                                 <div key={stat.id} className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                                    <div className="text-blue-100">{stat.label}</div>
+                                    <div className="text-4xl md:text-5xl font-bold mb-2">
+                                        {stat.value}
+                                    </div>
+                                    <div>{stat.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -349,38 +522,68 @@ export default function About() {
                 <section ref={teamRef} className="py-16 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="text-center max-w-3xl mx-auto mb-12">
-                            <h2 className="text-3xl font-bold mb-4">Tim Kami</h2>
-                            <p className="text-gray-700">Kenali orang-orang hebat di balik Kreavoks</p>
+                            <h2 className="text-3xl font-bold mb-4">
+                                Tim Kami
+                            </h2>
+                            {/* <p className="text-gray-700">
+                                Kenali orang-orang hebat di balik Kreavoks
+                            </p> */}
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-8">
                             {teamMembers.map((member) => (
-                                <div key={member.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] group">
+                                <div
+                                    key={member.id}
+                                    className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] group"
+                                >
                                     <div className="relative overflow-hidden rounded-xl mb-4 aspect-square">
                                         <img
-                                            src={member.image || "/placeholder.svg"}
+                                            src={
+                                                member.image ||
+                                                "/placeholder.svg"
+                                            }
                                             alt={member.name}
                                             className="w-full h-full object-top object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                            <div className="p-4 w-full flex justify-center">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-blue-700 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                            <div className="p-4 w-full flex flex-col text-center text-white">
+                                                <h3 className="text-lg font-semibold">
+                                                    {member.name}
+                                                </h3>
+                                                <p>{member.position}</p>
+                                            </div>
+                                            {/* <div className="p-4 w-full flex justify-center">
                                                 <div className="flex gap-4">
-                                                    <a href={member.social.linkedin} className="text-white hover:text-blue-300">
+                                                    <a
+                                                        href={
+                                                            member.social
+                                                                .linkedin
+                                                        }
+                                                        className="text-white hover:text-blue-300"
+                                                    >
                                                         <i className="fa-brands fa-linkedin text-lg"></i>
                                                     </a>
-                                                    <a href={member.social.twitter} className="text-white hover:text-blue-300">
+                                                    <a
+                                                        href={
+                                                            member.social
+                                                                .twitter
+                                                        }
+                                                        className="text-white hover:text-blue-300"
+                                                    >
                                                         <i className="fa-brands fa-twitter text-lg"></i>
                                                     </a>
-                                                    <a href={member.social.instagram} className="text-white hover:text-blue-300">
+                                                    <a
+                                                        href={
+                                                            member.social
+                                                                .instagram
+                                                        }
+                                                        className="text-white hover:text-blue-300"
+                                                    >
                                                         <i className="fa-brands fa-instagram text-lg"></i>
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
-                                    </div>
-                                    <div className="text-center">
-                                        <h3 className="text-lg font-semibold">{member.name}</h3>
-                                        <p className="text-gray-600">{member.position}</p>
                                     </div>
                                 </div>
                             ))}
@@ -388,22 +591,27 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* CTA Section */}
+                {/* CTA Section
                 <section ref={ctaRef} className="py-16 bg-gray-50 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
                         <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-                            {/* Yellow circle accent */}
+                            Yellow circle accent
                             <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-yellow-300/30"></div>
                             <div className="absolute left-1/2 bottom-0 w-24 h-24 rounded-full bg-blue-400/30"></div>
 
                             <div className="relative z-10 max-w-3xl mx-auto text-center">
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Siap Bekerja Sama dengan Kami?</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                    Siap Bekerja Sama dengan Kami?
+                                </h2>
                                 <p className="text-blue-50 mb-8 text-lg">
-                                    Hubungi kami untuk mendiskusikan bagaimana Kreavoks dapat membantu bisnis atau karir digital Anda.
+                                    Hubungi kami untuk mendiskusikan bagaimana
+                                    Kreavoks dapat membantu bisnis atau karir
+                                    digital Anda.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <button className="px-6 py-3 bg-yellow-300 text-blue-800 font-semibold rounded-full hover:bg-yellow-400 cursor-pointer hover:scale-[1.02] transition duration-300">
-                                        <i className="fa-solid fa-envelope mr-2"></i> Hubungi Kami
+                                        <i className="fa-solid fa-envelope mr-2"></i>{" "}
+                                        Hubungi Kami
                                     </button>
                                     <button className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-50 cursor-pointer hover:scale-[1.02] transition duration-300">
                                         Lihat Layanan Kami
@@ -412,8 +620,8 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </div>
         </AppLayout>
-    )
+    );
 }
