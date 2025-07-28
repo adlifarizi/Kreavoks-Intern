@@ -1,3 +1,4 @@
+import CTAButton from "@/components/buttons/CTAButton";
 import React, { forwardRef } from "react";
 
 const CTAMentorSection = forwardRef<HTMLDivElement>((_, ref) => {
@@ -41,14 +42,9 @@ const CTAMentorSection = forwardRef<HTMLDivElement>((_, ref) => {
                             menarik.
                         </span>
                     </p>
-                    <a
-                        href=""
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:scale-105 transition duration-300 active:scale-95 select-none cursor-pointer items-center bg-white rounded-full px-4 py-2.5 text-blue-500 font-medium text-base md:text-xl z-50"
-                    >
+                    <CTAButton href="#" className="bg-white text-blue-500">
                         Gabung Sekarang
-                    </a>
+                    </CTAButton>
                 </div>
 
                 {/* Gambar Ilustrasi */}

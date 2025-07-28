@@ -1,7 +1,7 @@
 import { ServicePackage, type SharedData } from '@/types';
 import { useState, useEffect } from 'react';
-import { usePage } from '@inertiajs/react';
-import { IoLogoWhatsapp } from 'react-icons/io5';
+// import { usePage } from '@inertiajs/react';
+// import { IoLogoWhatsapp } from 'react-icons/io5';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
