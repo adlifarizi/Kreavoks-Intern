@@ -4,6 +4,7 @@ import { Head, usePage } from "@inertiajs/react";
 import AppLayout from "@/layouts/app-layout";
 import type { SharedData } from "@/types";
 import { useEffect, useRef, useState } from "react";
+import TimelineSection from "@/components/sections/about/TimelineSection";
 
 type member = {
     id: string;
@@ -183,6 +184,9 @@ export default function About() {
                     <div className="hidden lg:block absolute left-0 top-0 w-2/3 h-full rounded-br-[300px] bg-blue-50 -z-10"></div>
                 </section>
 
+                {/* Timeline Section */}
+                <TimelineSection ref={storyRef} />
+
                 {/* Our Story Section
                 <section ref={storyRef} className="py-16 opacity-0">
                     <div className="container mx-auto px-6 md:px-12 lg:px-16">
@@ -348,7 +352,7 @@ export default function About() {
                                     <img
                                         src="/images/vision-2.png"
                                         alt="Vision-2"
-                                        className="absolute bottom-10 -right-16 w-40 md:w-52 rounded-xl shadow-xl"
+                                        className="absolute bottom-10 right-2 lg:-right-16 w-40 md:w-52 rounded-xl shadow-xl"
                                     />
                                 </div>
                             </div>
@@ -418,7 +422,7 @@ export default function About() {
                                     <img
                                         src="/images/mission-2.png"
                                         alt="Mission-2"
-                                        className="absolute top-16 -left-16 w-40 md:w-52 rounded-xl shadow-xl border-4 border-white bg-white"
+                                        className="absolute top-16 lg:-left-16 w-40 md:w-52 rounded-xl shadow-xl border-4 border-white bg-white"
                                     />
                                 </div>
                             </div>
