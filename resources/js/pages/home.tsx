@@ -4,14 +4,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Head, Link, usePage, useForm } from "@inertiajs/react";
 import CountUp from "react-countup";
-import { Fingerprint, ShieldUser, UsersRound, SquareTerminal, SmilePlus } from "lucide-react";
 
 // Layouts
 import AppLayout from "@/layouts/app-layout";
 
 // Types
 import type {
-    Course,
     Event,
     ServicePackage,
     Testimonial,
@@ -20,20 +18,25 @@ import type {
 } from "@/types";
 
 // Components
-import Slider from "@/components/Slider";
-import CourseCard from "@/components/cards/CourseCard";
-import EventCard from "@/components/cards/EventCard";
-import ServicePackageSection from "@/components/sections/ServicePackageSection";
-import ConsultationSection from "@/components/sections/ConsultationSection";
-import TestimonialSlider from "@/components/TestimonialSlider";
-import MentorCard from "@/components/cards/MentorCard";
 import HeroLabels from "@/components/HeroLabels";
+
+// Sections
+import CollaborationSection from "@/components/sections/home/CollaborationSection";
+import YouTubeSection from "@/components/sections/home/YoutubeSection";
+import ServiceSection from "@/components/sections/home/ServiceSection";
+import PromoSection from "@/components/sections/home/PromoSection";
+import RekomendasiSection from "@/components/sections/home/RekomendasiSection";
+import WhyKreavoksSection from "@/components/sections/home/WhyKreavoksSection";
+import ServicePackageSection from "@/components/sections/home/ServicePackageSection";
+import ConsultationSection from "@/components/sections/home/ConsultationSection";
+import ListMentorSection from "@/components/sections/home/ListMentorSection";
+import TestimonialSection from "@/components/sections/home/TestimonialSection";
+import CTAMentorSection from "@/components/sections/home/CTAMentorSection";
 
 export default function Home() {
     <Head title="Kreavoks | Home" />;
     const { auth } = usePage<SharedData>().props;
     const { events } = usePage<SharedData & { events: Event[] }>().props;
-    const { courses } = usePage<SharedData & { courses: Course[] }>().props;
     const { servicePackages } = usePage<
         SharedData & {
             servicePackages: Record<
@@ -55,13 +58,14 @@ export default function Home() {
     const companiesRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLDivElement>(null);
     const serviceRef = useRef<HTMLDivElement>(null);
+    const promoRef = useRef<HTMLDivElement>(null);
     const eventsRef = useRef<HTMLDivElement>(null);
-    const coursesRef = useRef<HTMLDivElement>(null);
     const packagesRef = useRef<HTMLDivElement>(null);
-    const consulRef = useRef<HTMLDivElement>(null);
-    const ctaRef = useRef<HTMLDivElement>(null);
+    const whyRef = useRef<HTMLDivElement>(null);
+    const consultationRef = useRef<HTMLDivElement>(null);
     const listMentorRef = useRef<HTMLDivElement>(null);
     const testimonialRef = useRef<HTMLDivElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
 
     const logout = () => {
         post("/logout");
@@ -96,13 +100,14 @@ export default function Home() {
             companiesRef,
             videoRef,
             serviceRef,
+            promoRef,
             eventsRef,
-            coursesRef,
             packagesRef,
-            consulRef,
-            ctaRef,
+            whyRef,
+            consultationRef,
             listMentorRef,
             testimonialRef,
+            ctaRef,
         ];
 
         refs.forEach((ref) => {
@@ -114,37 +119,6 @@ export default function Home() {
                 if (ref.current) observer.unobserve(ref.current);
             });
         };
-    }, []);
-
-    // Countdown timer state
-    const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    });
-
-    useEffect(() => {
-        const targetDate = new Date("2025-08-17T00:00:00");
-
-        const timer = setInterval(() => {
-            const now = new Date();
-            const diff = targetDate.getTime() - now.getTime();
-
-            if (diff <= 0) {
-                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-                clearInterval(timer);
-            } else {
-                setTimeLeft({
-                    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-                    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-                    minutes: Math.floor((diff / (1000 * 60)) % 60),
-                    seconds: Math.floor((diff / 1000) % 60),
-                });
-            }
-        }, 1000);
-
-        return () => clearInterval(timer);
     }, []);
 
     return (
@@ -161,7 +135,7 @@ export default function Home() {
                     className="relative mb-8 bg-[radial-gradient(#e5e7eb_2px,transparent_2px)] [background-size:16px_16px] opacity-0"
                 >
                     {/* 1) Lapisan fading overlay full-width */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-white pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-white/50 pointer-events-none"></div>
                     {/* 2) Wrapper container untuk membatasi lebar konten */}
                     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 md:items-center gap-8 relative z-10">
                         {/* Left Content */}
@@ -264,497 +238,23 @@ export default function Home() {
                 </section>
 
                 {/* Section 2: Collaboration in Unity */}
-                <section className="relative py-12 bg-blue-50">
-                    <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
-                        <h2 className="text-2xl md:text-4xl font-semibold text-gray-800 mb-12">
-                            Kolaborasi Dalam Kesatuan
-                        </h2>
-                        <div className="flex flex-col gap-10 items-center justify-center">
-                            <div className="flex flex-row flex-wrap justify-center items-center gap-10 sm:gap-20">
-                                <img
-                                    src="/images/bank-sinarmas-logo.svg"
-                                    alt="Bank Sinarmas"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                                <img
-                                    src="/images/ecotainment.svg"
-                                    alt="Ecotainment"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                                <img
-                                    src="/images/umkmgo.svg"
-                                    alt="UMKM Go"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                                <img
-                                    src="/images/upala.svg"
-                                    alt="Upala"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="flex flex-row flex-wrap justify-center items-center gap-10 sm:gap-20">
-                                <img
-                                    src="/images/ipb-university-logo.svg"
-                                    alt="IPB University"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                                <img
-                                    src="/images/dpma.svg"
-                                    alt="DPMA"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                                <img
-                                    src="/images/ipb-university-logo.svg"
-                                    alt="IPB University"
-                                    className="h-14 hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Section: Company List Slider */}
-                {/* <section ref={companiesRef} className="py-10 opacity-0">
-                    <div className="container mx-auto px-6 md:px-12 lg:px-16">
-                        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                            <h2 className="font-bold text-black text-xl md:text-2xl whitespace-nowrap">
-                                Trusted by{" "}
-                                <span className="inline md:block">
-                                    <span className="font-normal text-base md:text-xl">
-                                        100+ Company
-                                    </span>
-                                </span>
-                            </h2>
-                            <div className="flex overflow-hidden w-full whitespace-nowrap [mask-image:_linear-gradient(to_right,transparent_0,_white_128px,_white_calc(100%-200px),transparent_100%)]">
-                                <div className="flex animate-loop-scroll">
-                                    <img
-                                        src="images/ecotainment.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="Ecotainment"
-                                    />
-                                    <img
-                                        src="images/upala.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="Upala"
-                                    />
-                                    <img
-                                        src="images/umkmgo.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="UMKM Go"
-                                    />
-                                    <img
-                                        src="images/dpma.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="DPMA"
-                                    />
-                                </div>
-                                <div
-                                    className="flex animate-loop-scroll"
-                                    aria-hidden="true"
-                                >
-                                    <img
-                                        src="images/ecotainment.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="Ecotainment"
-                                    />
-                                    <img
-                                        src="images/upala.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="Upala"
-                                    />
-                                    <img
-                                        src="images/umkmgo.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="UMKM Go"
-                                    />
-                                    <img
-                                        src="images/dpma.svg"
-                                        className="max-w-none mx-6 grayscale hover:grayscale-0 transition-all duration-300"
-                                        alt="DPMA"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
+                <CollaborationSection ref={companiesRef} />
 
                 {/* Section 3: Youtube Introduction */}
-                <section
+                <YouTubeSection
                     ref={videoRef}
-                    className="container mx-auto px-6 md:px-12 lg:px-16 py-10 opacity-0"
-                >
-                    <iframe
-                        className="w-full h-auto md:h-[560px] aspect-video bg-blue-500 border-4 border-blue-200 rounded-2xl md:rounded-3xl shadow-lg transition-transform duration-500 hover:scale-[1.01] hover:shadow-xl"
-                        src="https://www.youtube.com/embed/g4XCwjCpVIs"
-                        title="Introduction Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
-                </section>
+                    videoId="g4XCwjCpVIs"
+                    title="Introduction Video"
+                />
 
                 {/* Section 4: Service */}
-                <section
-                    ref={serviceRef}
-                    className="relative grid grid-cols-1 md:items-start justify-between gap-x-8 py-10 opacity-0"
-                >
-                    <img
-                        src="images/backgrounds/ServiceBg.png"
-                        className="w-full absolute top-0 z-0"
-                        alt="Service Background"
-                    />
-                    {/* Konten */}
-                    <div className="container mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-x-8 md:items-start">
-                        {/* Left Content */}
-                        <div className="relative px-6 md:px-12 lg:px-16 flex flex-col items-start gap-6">
-                            <div className="px-4 py-1.5 bg-blue-50 rounded-full text-blue-500 font-semibold">
-                                Service
-                            </div>
-                            <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
-                                Layanan Kami Dapat Jadi Solusi Masalah Kamu!
-                            </h2>
-                            <p className="text-gray-600 max-w-xl">
-                                Kami menawarkan solusi kreatif dan teknologi
-                                untuk mendukung kebutuhan bisnis dan
-                                pengembangan skill Anda. Mulai dari jasa
-                                pembuatan website profesional, desain grafis &
-                                UI yang menarik, hingga pelatihan skill digital
-                                untuk mempersiapkan Anda menghadapi era
-                                teknologi yang terus berkembang.
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                                <div className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-300">
-                                    <img
-                                        src="images/icons/blue-check.svg"
-                                        alt="Check"
-                                        className="mt-1"
-                                    />
-                                    <p>Profesional dan Terpercaya</p>
-                                </div>
-
-                                <div className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-300">
-                                    <img
-                                        src="images/icons/blue-check.svg"
-                                        alt="Check"
-                                        className="mt-1"
-                                    />
-                                    <p>Pendekatan Fleksibel dan Adaptif</p>
-                                </div>
-
-                                <div className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-300">
-                                    <img
-                                        src="images/icons/blue-check.svg"
-                                        alt="Check"
-                                        className="mt-1"
-                                    />
-                                    <p>
-                                        Materi yang Sesuai dengan Kebutuhan
-                                        Industri
-                                    </p>
-                                </div>
-
-                                <div className="flex items-start gap-2 hover:translate-x-1 transition-transform duration-300">
-                                    <img
-                                        src="images/icons/blue-check.svg"
-                                        alt="Check"
-                                        className="mt-1"
-                                    />
-                                    <p>Dedikasi untuk Solusi Berkualitas</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right Content */}
-                        <div className="relative px-6 md:px-12 lg:px-16 py-8 h-full grid grid-cols-1 sm:grid-cols-2 justify-between gap-6">
-                            <div className="flex flex-col justify-between h-full gap-6">
-                                <div className="flex flex-grow">
-                                    <div className="relative w-full h-full min-h-64 drop-shadow-[0_2px_2px_rgba(255,255,255,0.2)] rounded-b-2xl rounded-tr-2xl transition-transform duration-500 hover:scale-105 hover:shadow-lg">
-                                        {/* Content */}
-                                        <div className="relative z-10 flex flex-col h-full">
-                                            {/* Top tab */}
-                                            <div className="grid grid-cols-2">
-                                                <div className="flex space-x-1 p-2 bg-white/60 rounded-t-2xl backdrop-blur-sm shadow-[0_-1px_4px_rgba(0,0,0,0.1)]">
-                                                    <div className="w-2.5 h-2.5 bg-neutral-800 rounded-full" />
-                                                    <div className="w-2.5 h-2.5 bg-yellow-300 rounded-full" />
-                                                    <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
-                                                </div>
-                                                <div className="bg-transparent" />
-                                            </div>
-
-                                            {/* Content (take remaining height) */}
-                                            <div className="shadow-md flex-1 flex flex-col justify-end p-6 pt-10 bg-white/60 backdrop-blur-sm rounded-b-2xl rounded-tr-2xl">
-                                                <div className="flex items-center justify-center h-14 w-14 p-3 rounded-full bg-blue-50 mb-3">
-                                                    <img
-                                                        src="images/icons/JasaPembuatanWebsite.svg"
-                                                        className="size-8"
-                                                        alt="Website"
-                                                    />
-                                                </div>
-                                                <div className="flex flex-col items-start gap-2">
-                                                    <p className="font-bold text-lg">
-                                                        Jasa pembuatan Website
-                                                        Profesional
-                                                    </p>
-                                                    <button className="text-blue-500 font-medium hover:text-blue-600 transition duration-300">
-                                                        Lihat Detail{" "}
-                                                        <i className="fa-solid fa-arrow-right"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="relative flex flex-col rounded-2xl bg-white/60 backdrop-blur-sm shadow-md p-6 transition-transform duration-500 hover:scale-105 hover:shadow-lg">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-50">
-                                            <img
-                                                src="images/icons/JasaDesainGrafis.svg"
-                                                className="size-8"
-                                                alt="Design"
-                                            />
-                                        </div>
-                                        <p className="font-bold text-lg">
-                                            Desain Grafis & User Interface
-                                        </p>
-                                    </div>
-                                    <button className="text-blue-500 font-medium flex items-center gap-2 hover:text-blue-600 transition duration-300 self-start">
-                                        Lihat detail
-                                        <i className="fa-solid fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col">
-                                <div className="relative flex flex-grow">
-                                    <div className="relative w-full h-full min-h-64 rounded-b-2xl rounded-tr-2xl transition-transform duration-500 hover:scale-105 hover:shadow-lg">
-                                        {/* Content */}
-                                        <div className="relative z-10 flex flex-col h-full">
-                                            {/* Top tab */}
-                                            <div className="grid grid-cols-2">
-                                                <div className="flex space-x-1 p-2 bg-blue-500 rounded-t-2xl">
-                                                    <div className="w-2.5 h-2.5 bg-neutral-800 rounded-full" />
-                                                    <div className="w-2.5 h-2.5 bg-yellow-300 rounded-full" />
-                                                    <div className="w-2.5 h-2.5 bg-white rounded-full" />
-                                                </div>
-                                                <div className="bg-transparent" />
-                                            </div>
-
-                                            {/* Content with background image */}
-                                            <div className="shadow-md flex-3/4 flex flex-col justify-end bg-[url(/images/service-people.png)] bg-cover bg-right-top bg-no-repeat rounded-b-2xl rounded-tr-2xl bg-blue-500 p-6 pt-10">
-                                                <div className="w-fit z-10 mb-4">
-                                                    <div className="flex items-center justify-center h-14 w-14 p-3 rounded-full bg-blue-50">
-                                                        <img
-                                                            src="images/icons/JasaPelatihanSkill.svg"
-                                                            className="size-8"
-                                                            alt="Training"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <p className="font-bold text-lg text-white z-10">
-                                                    Program Pelatihan Skill
-                                                    Digital
-                                                </p>
-                                                <button className="mt-2 text-white font-medium flex items-center gap-2 hover:text-blue-100 transition duration-300 self-start">
-                                                    Lihat detail
-                                                    <i className="fa-solid fa-arrow-right"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <ServiceSection ref={serviceRef} />
 
                 {/* Section 5: Promo */}
-                <section className="relative bg-white py-16 overflow-hidden w-full">
-                    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 px-6 md:px-12 lg:px-16 relative z-10">
-                        {/* Left - Promo Card */}
-                        <div className="relative w-full flex justify-center md:justify-start inset-0 max-w-[480px] mx-auto rounded-[40px] bg-gradient-to-br from-blue-500 via-blue-400/80 to-white hover:scale-105 transition-transform duration-500 shadow-lg">
-                            <div className="relative w-full flex flex-col items-center justify-center">
-                                {/* Tulisan PROMO */}
-                                <div className="absolute -bottom-5 w-full flex justify-center pointer-events-none z-10">
-                                    <span className="text-[80px] md:text-[125px] font-extrabold text-black/8 tracking-tight select-none leading-none">
-                                        PROMO
-                                    </span>
-                                </div>
-                                {/* Card stack effect */}
-                                <div className="relative w-full max-w-[340px] min-h-[520px] flex flex-col items-center justify-center mx-auto z-20">
-                                    {/* Stack Event Cards */}
-                                    <div className="relative h-[520px] w-full flex flex-col items-center justify-center">
-                                        <div className="absolute w-full -rotate-8 opacity-60 shadow-xl pointer-events-none">
-                                            <EventCard event={events[0]} />
-                                        </div>
-                                        {/* Main promo event card */}
-                                        <div className="relative w-full z-10">
-                                            <EventCard event={events[3]} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right - Text & Countdown */}
-                        <div className="flex flex-col items-start gap-5">
-                            {/* Countdown Timer */}
-                            <div className="flex justify-center md:justify-start items-center gap-1 md:gap-4 text-center flex-wrap bg-white rounded-2xl px-2 md:px-4 py-2 md:py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
-                                {[
-                                    { label: "Hari", value: timeLeft.days },
-                                    { label: "Jam", value: timeLeft.hours },
-                                    { label: "Menit", value: timeLeft.minutes },
-                                    { label: "Detik", value: timeLeft.seconds },
-                                ].map((item, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="px-3 md:px-6 py-1 md:py-2 min-w-[100px]"
-                                    >
-                                        <p className="text-2xl md:text-4xl font-semibold">
-                                            {item.value}
-                                        </p>
-                                        <p className="text-xs md:text-sm font-medium">
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="flex flex-col gap-2 mb-4 md:mb-6">
-                                <h2 className="text-3xl md:text-4xl max-w-lg bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight">
-                                    Penawaran Menarik Nih Buat Kamu dari
-                                    Kreavoks
-                                </h2>
-                                <p className="text-gray-600 text-md max-w-xl">
-                                    Tunggu apa lagi? Ambil kesempatan emas ini
-                                    sekarang juga!!
-                                </p>
-                            </div>
-
-                            {/* Promo Code */}
-                            <div className="flex flex-col gap-6 w-full">
-                                <div className="flex justify-between items-center w-full">
-                                    <p className="font-semibold text-lg md:text-xl w-xs">
-                                        Gunakan kode promo dan dapatkan diskon
-                                        hingga
-                                    </p>
-
-                                    {/* Diskon */}
-                                    <div className="bg-blue-500 text-yellow-300 px-5 py-3 rounded-full flex items-center justify-center font-bold text-xl shrink-0">
-                                        20%
-                                    </div>
-                                </div>
-
-                                {/* Kode promo - Click to copy */}
-                                <div
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(
-                                            "KREAVOKSDIGITAL"
-                                        );
-                                        alert("Kode promo disalin!");
-                                    }}
-                                    className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto md:mx-0 transition hover:bg-gray-200 hover:scale-105"
-                                >
-                                    {/* Icon Copy */}
-                                    <div className="bg-white p-1 rounded-full">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-5 w-5 text-gray-600"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-4 4h6a2 2 0 012 2v6a2 2 0 01-2 2h-6a2 2 0 01-2-2v-6a2 2 0 012-2z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <span className="text-lg md:text-base">
-                                        KREAVOKSDIGITAL
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Background Gradasi Blur */}
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200 rounded-full blur-3xl opacity-30 z-0" />
-                </section>
+                <PromoSection ref={promoRef} events={events} />
 
                 {/* Section 6: Rekomendasi */}
-                <section
-                    ref={eventsRef}
-                    className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
-                >
-                    <div className="flex flex-col items-start gap-2 mb-4 md:mb-6">
-                        <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
-                            Rekomendasi Buat Kamu
-                        </h2>
-                        <p className="text-gray-600 text-xl max-w-xl">
-                            Gausah bingung, nih rekomendasi buat kamu
-                        </p>
-                    </div>
-                    {/* <div className="flex items-center justify-between">
-                        <div className="inline-flex items-center gap-3">
-                            <img
-                                src="images/icons/UpcomingEvents.svg"
-                                className="size-7 md:size-8"
-                                alt="Events"
-                            />
-                            <h2 className="text-xl md:text-2xl font-semibold">
-                                Upcoming Events
-                            </h2>
-                        </div>
-                        <Link
-                            href="/program"
-                            className="text-sm md:text-base flex items-center gap-2 text-blue-500 font-medium hover:border-b-2 hover:border-blue-500 transition-all duration-300"
-                        >
-                            See all{" "}
-                            <i className="fa-solid fa-chevron-right"></i>
-                        </Link>
-                    </div> */}
-
-                    <Slider
-                        items={events}
-                        renderItem={(item, index) => <EventCard event={item} />}
-                    />
-                </section>
-
-                {/* Section: Best Seller Course List
-                <section
-                    ref={coursesRef}
-                    className="container mx-auto px-6 md:px-12 lg:px-16 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
-                >
-                    <div className="flex items-center justify-between">
-                        <div className="inline-flex items-center gap-3">
-                            <img
-                                src="images/icons/BestSellerCourses.svg"
-                                className="size-7 md:size-8"
-                                alt="Courses"
-                            />
-                            <h2 className="text-xl md:text-2xl font-semibold">
-                                Best Seller Courses
-                            </h2>
-                        </div>
-                        <Link
-                            href="/program"
-                            className="text-sm md:text-base flex items-center gap-2 text-blue-500 font-medium hover:border-b-2 hover:border-blue-500 transition-all duration-300"
-                        >
-                            See all{" "}
-                            <i className="fa-solid fa-chevron-right"></i>
-                        </Link>
-                    </div>
-
-                    <Slider
-                        items={courses}
-                        renderItem={(item, index) => (
-                            <CourseCard course={item} />
-                        )}
-                    />
-                </section> */}
+                <RekomendasiSection ref={eventsRef} events={events} />
 
                 {/* Section 7: Service Packages */}
                 <section ref={packagesRef} className="py-10">
@@ -766,244 +266,26 @@ export default function Home() {
                 </section>
 
                 {/* Section 8: Kenapa Kreavoks */}
-                <section className="w-full px-4 md:px-10 lg:px-24 py-12 flex flex-col md:flex-row gap-20 xl:gap-40 items-start">
-                    {/* Left Side */}
-                    <div className="flex-[0_0_480px] max-w-[480px] flex flex-col gap-4">
-                        <div className="flex flex-col items-start gap-2 mb-4 md:mb-6">
-                            <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500 hover:translate-x-2">
-                                Kenapa Harus Kreavoks?
-                            </h2>
-                            <p className="text-gray-600 text-xl max-w-xl">
-                                Nih 5 alasan kenapa kreavoks tempat terbaik buat
-                                solusi digitalmu!
-                            </p>
-                        </div>
-                        <div className="hover:scale-105 transition-transform duration-500 shadow-lg">
-                            <img
-                                src="/images/why-people.png"
-                                alt="Kenapa Kreavoks"
-                                className="object-cover w-full"
-                            />
-                        </div>
-                    </div>
-                    {/* Right Side */}
-                    <div className="flex-1 flex flex-col gap-8">
-                        {/* Card utama */}
-                        <div className="bg-blue-50 rounded-lg p-4 mb-2 shadow-sm border-b-4 border-blue-500 hover:scale-105 transition-transform duration-500">
-                            <div className="flex items-center gap-6">
-                                <Fingerprint className="w-10 h-10 text-blue-500" />
-                                <div>
-                                    <h3 className="text-xl md:text-2xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight transition-transform duration-500">
-                                        Solusi Digital Terpadu
-                                    </h3>
-                                    <p className="text-sm max-w-xl">
-                                        Layanan lengkap mulai dari desain,
-                                        pengembangan, hingga strategi digital
-                                        yang menyeluruh.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {/* List */}
-                        <div className="p-4 flex flex-col gap-10">
-                            <div className="flex items-center gap-6">
-                                <ShieldUser className="w-8 h-8" />
-                                <div>
-                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
-                                        Tim Profesional & Berpengalaman
-                                    </p>
-                                    <p>
-                                        Didukung oleh tim ahli di berbagai
-                                        bidang, Kreavoks siap mewujudkan ide-ide
-                                        Anda menjadi kenyataan.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-6">
-                                <UsersRound className="w-8 h-8" />
-                                <div>
-                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
-                                        Pendekatan Kolaboratif
-                                    </p>
-                                    <p>
-                                        Didukung oleh tim ahli di berbagai
-                                        bidang, Kreavoks siap mewujudkan ide-ide
-                                        Anda menjadi kenyataan.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-6">
-                                <SquareTerminal className="w-8 h-8" />
-                                <div>
-                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
-                                        Pembelajaran Berbasis Proyek
-                                    </p>
-                                    <p>
-                                        Pembelajaran yang melibatkan langsung
-                                        dalam proyek nyata.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-6">
-                                <SmilePlus className="w-8 h-8" />
-                                <div>
-                                    <p className="font-semibold text-gray-800 text-xl md:text-2xl">
-                                        Mengedepankan Kepuasan Klien
-                                    </p>
-                                    <p>
-                                        Didukung oleh tim ahli di berbagai
-                                        bidang, Kreavoks siap mewujudkan ide-ide
-                                        Anda menjadi kenyataan.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <WhyKreavoksSection ref={whyRef} />
 
                 {/* Section 9: CTA Konsultasi */}
-                <section ref={packagesRef} className="py-10">
-                    <ConsultationSection />
-                </section>
+                <ConsultationSection ref={consultationRef} />
 
                 {/* Section 10: List Mentor */}
-                <section
+                <ListMentorSection
                     ref={listMentorRef}
-                    className="relative px-0 md:px-0 lg:px-0 py-10 w-full flex flex-col gap-6 z-10 opacity-0"
-                >
-                    {/* Gradient animasi */}
-                    <div
-                        className={`absolute inset-0 z-0 h-72 md:h-96 transition-all duration-[2000ms] ease-out bg-gradient-to-b from-[#4082E6] via-white to-transparent
-                        ${
-                            animate
-                                ? "animate-expandGradientX"
-                                : "opacity-0 scale-x-0 origin-center"
-                        }
-                        `}
-                    />
-
-                    <div className="relative mt-12 z-10 text-center w-full max-w-full">
-                        <div className="flex flex-col items-center gap-2 mb-4 md:mb-6">
-                            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-                                Mentor di Kreavoks
-                            </h2>
-                            <p className="text-gray-600 text-xl max-w-xl">
-                                Pengalamannya ga main-main
-                            </p>
-                        </div>
-
-                        <div className="relative w-full">
-                            {/* Gradient mask left */}
-                            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-                            {/* Gradient mask right */}
-                            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
-
-                            <div
-                                className="flex md:gap-8 overflow-x-auto py-2 px-8 md:px-16 scrollbar-hide"
-                                style={{
-                                    scrollSnapType: "x mandatory",
-                                    WebkitOverflowScrolling: "touch",
-                                }}
-                            >
-                                {mentors?.length > 0 ? (
-                                    mentors.map((mentor, i) => (
-                                        <div
-                                            key={mentor.id || i}
-                                            className="flex-shrink-0"
-                                            style={{
-                                                scrollSnapAlign: "center",
-                                                width: "260px",
-                                                maxWidth: "90vw",
-                                            }}
-                                        >
-                                            <MentorCard mentor={mentor} />
-                                        </div>
-                                    ))
-                                ) : (
-                                    <p className="col-span-full text-center text-gray-500">
-                                        Belum ada mentor tersedia saat ini.
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    animate={animate}
+                    mentors={mentors}
+                />
 
                 {/* Section 11: Testimonial */}
-                <section
+                <TestimonialSection
                     ref={testimonialRef}
-                    className="container mx-auto px-6 md:px-12 lg:px-16 py-12 w-full flex flex-col gap-6 z-10 opacity-0"
-                >
-                    <div className="flex flex-col items-center gap-2 mb-4 md:mb-6">
-                        <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300/70 bg-clip-text text-transparent font-semibold leading-tight">
-                            Mereka Sudah Buktikan
-                        </h2>
-                        <p className="text-gray-600 text-xl max-w-xl">
-                            Kini saatnya kamu untuk buktikan
-                        </p>
-                    </div>
-
-                    <TestimonialSlider testimonials={testimonials} />
-                </section>
+                    testimonials={testimonials}
+                />
 
                 {/* Section 12: CTA Mentor */}
-                <section className="relative px-2 md:px-10 lg:px-24 py-10 w-full flex flex-col gap-6 z-10">
-                    {/* Card */}
-                    <div
-                        className="relative flex flex-col md:flex-row items-center justify-between rounded-[40px] p-6 md:p-12 min-h-[320px] overflow-visible"
-                        style={{
-                            background:
-                                "linear-gradient(90deg, #1E90FF 0%, #2D6BC9 20%, #1E90FF 55%, #A5D8FF 80%, #1E90FF 100%)",
-                        }}
-                    >
-                        {/* Background Pattern */}
-                        <div
-                            className="absolute inset-0 rounded-[40px] opacity-100"
-                            style={{
-                                backgroundImage:
-                                    "url('/images/mentor-cta-bg.svg')",
-                                backgroundPosition: "right center",
-                                backgroundSize: "contain",
-                                backgroundRepeat: "no-repeat",
-                            }}
-                        />
-
-                        {/* Left Content */}
-                        <div className="flex-1 flex flex-col justify-center z-15 items-start gap-6 md:pr-8">
-                            <h2 className="text-2xl md:text-4xl font-extrabold text-white leading-tight mb-2">
-                                Tertarik Jadi Mentor Di{" "}
-                                <span className="text-yellow-300">
-                                    Kreavoks?
-                                </span>
-                            </h2>
-                            <p className="text-white text-base md:text-lg max-w-xl font-normal mb-4">
-                                Bergabunglah dengan{" "}
-                                <span className="font-bold">100+ mentor</span>{" "}
-                                lainnya untuk berkontribusi dan menciptakan
-                                dampak di komunitas IT Indonesia. Dapatkan
-                                manfaat seperti{" "}
-                                <span className="font-bold">
-                                    pendapatan bagi hasil, eksposur, dan akses
-                                    ke proyek menarik.
-                                </span>
-                            </p>
-                            <button className="mt-2 bg-white text-[#4082E6] font-semibold text-lg md:text-xl px-8 py-3 rounded-full shadow hover:scale-105 transition duration-300">
-                                Gabung sekarang
-                            </button>
-                        </div>
-
-                        {/* Gambar Ilustrasi */}
-                        <div className="hidden relative xl:flex items-end justify-end md:absolute md:right-0 md:bottom-0 md:h-full md:w-auto z-10">
-                            <img
-                                src="/images/mentor-cta-people.png"
-                                alt="CTA Mentor"
-                                className="h-[340px] md:h-[480px] w-auto object-contain md:object-bottom -translate-x-5 md:-translate-x-20"
-                                style={{ maxHeight: "none" }}
-                                draggable={false}
-                            />
-                        </div>
-                    </div>
-                </section>
+                <CTAMentorSection ref={ctaRef} />
             </div>
         </AppLayout>
     );

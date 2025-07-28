@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import ServicePackageCard from '../cards/ServicePackageCard';
-import CheckerboardBackground from '../CheckerboardBackground';
+import ServicePackageCard from '../../cards/ServicePackageCard';
+import CheckerboardBackground from '../../CheckerboardBackground';
 
 type Props = {
     servicePackages: Record<"Website" | "Mobile App" | "Design", ServicePackage[]>;
