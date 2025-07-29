@@ -6,7 +6,7 @@ export function Footer() {
     return (
         <footer className="bg-blue-500 text-white border-t overflow-hidden">
             {/* Main Footer Content */}
-            <div className="max-w-7xl w-full mx-auto px-4 md:px-8 py-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8">
+            <div className="max-w-7xl w-full mx-auto px-4 md:px-8 py-14 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-[2fr_1.5fr_1fr_1fr] gap-10">
                 {/* Brand */}
                 <div>
                     <img
@@ -25,21 +25,21 @@ export function Footer() {
 
                 {/* Address */}
                 <div className="text-sm break-words">
-                    <p className="font-semibold mb-3 text-white">Alamat</p>
+                    <p className="font-semibold mb-4 text-white">Alamat</p>
                     <p className="text-white">Jl. Kumbang No.14</p>
                     <p className="text-white">Babakan, Kota Bogor</p>
-                    <div className="flex items-center gap-2 mt-2 text-white">
+                    <div className="flex items-center gap-2 mt-3 text-white">
                         <Mail size={16} /> <span>hello@kreavoks.my.id</span>
                     </div>
-                    {/* <div className="flex items-center gap-2 mt-1 text-white">
+                    <div className="flex items-center gap-2 mt-3 text-white">
                         <Phone size={16} /> <span>+62 00000000</span>
-                    </div> */}
+                    </div>
                 </div>
 
                 {/* Menu */}
                 <div className="text-sm">
-                    <p className="font-semibold mb-3 text-white">Menu</p>
-                    <ul className="space-y-1">
+                    <p className="font-semibold mb-4 text-white">Menu</p>
+                    <ul className="space-y-2">
                         <li>
                             <Link href="/" className="text-white hover:text-gray-300">Home</Link>
                         </li>
@@ -57,8 +57,8 @@ export function Footer() {
 
                 {/* Link */}
                 <div className="text-sm">
-                    <p className="font-semibold mb-3 text-white">Link</p>
-                    <ul className="space-y-1">
+                    <p className="font-semibold mb-4 text-white">Link</p>
+                    <ul className="space-y-2">
                         <li>
                             <Link href="#" className="text-white hover:text-gray-300">Privacy & Policy</Link>
                         </li>
@@ -95,7 +95,7 @@ export function Footer() {
             </div>
 
             {/* Footer Bottom */}
-            <div className="bg-white text-blue-500 text-center p-3 text-sm">
+            <div className="bg-white text-blue-500 text-center p-5 text-md">
                 Copyright <span>{new Date().getFullYear()}</span> ©kreavoks official | Powered by kreavoks official
             </div>
         </footer>
