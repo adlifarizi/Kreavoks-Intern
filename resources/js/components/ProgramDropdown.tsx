@@ -1,45 +1,42 @@
 import { useEffect, useState, useRef } from "react";
-import { ChevronRight } from "lucide-react";
+import { Code, Video, Volume2, FolderSearch, ChevronRight } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 const programItems = [
     {
         key: "software",
         label: "Jasa Pembuatan Software dan Design",
         desc: "Pengembangan & Desain Branding Profesional.",
-        icon: "/images/icons/ProgramSoftware.svg",
+        icon: <Code className="w-12 h-12 text-blue-500" />,
         image: "/images/program/software.png",
-        href: "/program/software",
     },
     {
         key: "ecourse",
         label: "E-Course",
         desc: "Kursus online untuk pengembangan diri.",
-        icon: "/images/icons/ProgramECourse.svg",
+        icon: <Video className="w-12 h-12 text-blue-500" />,
         image: "/images/program/ecourse.png",
-        href: "/program/ecourse",
     },
     {
         key: "event",
         label: "Event & Workshop",
         desc: "Gabung event & workshop eksklusif.",
-        icon: "/images/icons/ProgramEvent.svg",
+        icon: <Volume2 className="w-12 h-12 text-blue-500" />,
         image: "/images/program/event.png",
-        href: "/program/event",
     },
     {
         key: "bootcamp",
         label: "Bootcamp",
         desc: "Siap bersaing dengan bootcamp intensif.",
-        icon: "/images/icons/ProgramBootcamp.svg",
+        icon: <FolderSearch className="w-12 h-12 text-blue-500" />,
         image: "/images/program/bootcamp.png",
-        href: "/program/bootcamp",
         badge: "Coming Soon",
     },
 ];
 
-export default function ProgramDropdown({ mobile = false }) {
+export default function ProgramDropdown({ mobile = false, isActive = false }) {
     const [open, setOpen] = useState(false);
-    const [active, setActive] = useState(programItems[0].key);
+    const [activeKey, setActiveKey] = useState(programItems[0].key);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -54,16 +51,16 @@ export default function ProgramDropdown({ mobile = false }) {
         }
     }, [mobile]);
 
-    const activeItem = programItems.find((item) => item.key === active);
+    const activeItem = programItems.find((item) => item.key === activeKey);
 
-    // Mobile Dropdown
+    // Mobile Version
     if (mobile) {
         return (
             <div className="relative w-full" ref={ref}>
                 <button
                     onClick={() => setOpen(!open)}
                     className={`px-4 py-1 rounded-full flex items-center gap-2 hover:text-blue-500 hover:font-semibold hover:bg-blue-50 ${
-                        open
+                        open || isActive
                             ? "text-blue-500 font-semibold bg-blue-50"
                             : "text-gray-800"
                     } w-full`}
@@ -75,25 +72,25 @@ export default function ProgramDropdown({ mobile = false }) {
                         }`}
                     ></i>
                 </button>
-                <div className={`${open ? "block" : "hidden"} w-full`}>
+                {open && (
                     <div className="mt-2 w-full bg-white rounded-xl shadow-lg z-50 py-2">
                         {programItems.map((item) => (
-                            <a
+                            <Link
                                 key={item.key}
-                                href={item.href}
+                                href="/program"
                                 className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
                                 onClick={() => setOpen(false)}
                             >
                                 {item.label}
-                            </a>
+                            </Link>
                         ))}
                     </div>
-                </div>
+                )}
             </div>
         );
     }
 
-    // Desktop Dropdown
+    // Desktop Version
     return (
         <div
             className="relative"
@@ -103,8 +100,8 @@ export default function ProgramDropdown({ mobile = false }) {
         >
             <button
                 type="button"
-                className={`px-4 py-1 rounded-full flex items-center gap-2 hover:text-blue-500 hover:bg-blue-50 ${
-                    open
+                className={`px-4 py-1 rounded-full flex items-center gap-2 cursor-pointer hover:text-blue-500 hover:bg-blue-50 ${
+                    open || isActive
                         ? "text-blue-500 font-semibold bg-blue-50"
                         : "text-gray-800"
                 }`}
@@ -121,33 +118,29 @@ export default function ProgramDropdown({ mobile = false }) {
                 <>
                     {/* Overlay */}
                     <div
-                        className="fixed inset-0 bg-black/30 z-[90]"
+                        className="fixed inset-0 mt-20 bg-black/20 z-[90] pointer-events-none"
                         onClick={() => setOpen(false)}
                     ></div>
                     {/* Dropdown */}
                     <div className="fixed left-1/2 top-[100px] -translate-x-1/2 w-[90vw] max-w-[1200px] bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl flex p-8 z-[100] transition-all duration-300">
-                        {/* Left menu */}
+                        {/* Left Menu */}
                         <div className="flex flex-col gap-4 flex-[0_0_440px] max-w-[440px]">
                             {programItems.map((item) => (
-                                <a
+                                <Link
                                     key={item.key}
-                                    href={item.href}
-                                    onMouseEnter={() => setActive(item.key)}
+                                    href="/program"
+                                    onMouseEnter={() => setActiveKey(item.key)}
                                     className={`flex items-center gap-3 p-2 rounded-xl transition-all cursor-pointer ${
-                                        active === item.key
+                                        activeKey === item.key
                                             ? "bg-blue-50"
                                             : "hover:bg-gray-50"
                                     }`}
                                 >
-                                    <img
-                                        src={item.icon}
-                                        className="w-12 h-12"
-                                        alt=""
-                                    />
+                                    {item.icon}
                                     <div>
                                         <p
                                             className={`font-semibold ${
-                                                active === item.key
+                                                activeKey === item.key
                                                     ? "text-blue-500"
                                                     : "text-gray-800"
                                             }`}
@@ -163,23 +156,23 @@ export default function ProgramDropdown({ mobile = false }) {
                                             {item.desc}
                                         </p>
                                     </div>
-                                </a>
+                                </Link>
                             ))}
                         </div>
-                        {/* Right image & CTA */}
+                        {/* Right Preview */}
                         <div className="flex-1 flex flex-col items-start justify-center mb-4">
                             <img
                                 src={activeItem?.image}
                                 alt=""
                                 className="rounded-2xl w-full h-auto object-cover mb-2 md:mb-4 transition-all duration-300"
                             />
-                            <a
-                                href={activeItem?.href}
+                            <Link
+                                href="/program"
                                 className="text-blue-500 font-medium text-xs md:text-sm flex items-center self-start md:-mt-10 hover:underline"
                             >
                                 Pelajari Lebih Lanjut{" "}
                                 <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </>

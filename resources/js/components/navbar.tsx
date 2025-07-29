@@ -72,7 +72,11 @@ export function Navbar() {
                 >
                     Home
                 </Link>
-                <ProgramDropdown />
+                <Link href="/program">
+                    <ProgramDropdown
+                        isActive={url.replace(/\/+$/, "") === "/program"}
+                    />
+                </Link>
                 <Link
                     href="/portfolio"
                     className={`px-4 py-1 rounded-full hover:text-blue-500 hover:font-semibold hover:bg-blue-50 ${
@@ -96,7 +100,7 @@ export function Navbar() {
             </div>
 
             {/* Languange & Auth */}
-            <div className="hidden lg:flex space-x-4">
+            <div className="hidden lg:flex items-center space-x-4">
                 {/* Language Selector */}
                 <div className="relative" ref={langRef}>
                     <button
@@ -185,7 +189,7 @@ export function Navbar() {
                 ></div>
             )}
 
-            {/* Mobile Sidebar (bisa discroll) */}
+            {/* Mobile Sidebar */}
             <div
                 className={`fixed inset-y-0 right-0 w-2/3 bg-white shadow-lg transform transition-transform duration-300 ${
                     isOpen ? "translate-x-0" : "translate-x-full"
@@ -193,7 +197,10 @@ export function Navbar() {
             >
                 {/* Close Button */}
                 <div className="flex justify-end p-4">
-                    <button onClick={toggleMenu} className="text-gray-500 text-xl">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-gray-500 text-xl"
+                    >
                         <i className="fa-solid fa-xmark"></i>
                     </button>
                 </div>
