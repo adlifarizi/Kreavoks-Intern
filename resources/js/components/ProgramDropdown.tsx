@@ -43,14 +43,16 @@ export default function ProgramDropdown({ mobile = false }) {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        function handleClick(e: MouseEvent) {
-            if (ref.current && !ref.current.contains(e.target as Node)) {
-                setOpen(false);
+        if (mobile) {
+            function handleClick(e: MouseEvent) {
+                if (ref.current && !ref.current.contains(e.target as Node)) {
+                    setOpen(false);
+                }
             }
+            document.addEventListener("mousedown", handleClick);
+            return () => document.removeEventListener("mousedown", handleClick);
         }
-        document.addEventListener("mousedown", handleClick);
-        return () => document.removeEventListener("mousedown", handleClick);
-    }, []);
+    }, [mobile]);
 
     const activeItem = programItems.find((item) => item.key === active);
 
@@ -93,14 +95,20 @@ export default function ProgramDropdown({ mobile = false }) {
 
     // Desktop Dropdown
     return (
-        <div className="relative" ref={ref}>
+        <div
+            className="relative"
+            ref={ref}
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+        >
             <button
-                onClick={() => setOpen(!open)}
+                type="button"
                 className={`px-4 py-1 rounded-full flex items-center gap-2 hover:text-blue-500 hover:bg-blue-50 ${
                     open
                         ? "text-blue-500 font-semibold bg-blue-50"
                         : "text-gray-800"
                 }`}
+                tabIndex={0}
             >
                 Program
                 <i
@@ -133,7 +141,7 @@ export default function ProgramDropdown({ mobile = false }) {
                                 >
                                     <img
                                         src={item.icon}
-                                        className="w-7 h-7"
+                                        className="w-12 h-12"
                                         alt=""
                                     />
                                     <div>
