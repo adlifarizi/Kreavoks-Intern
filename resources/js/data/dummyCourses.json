@@ -22,7 +22,7 @@
         "sold": 950,
         "videos": 42,
         "status": "published",
-        "image": "/images/dummy/courses/belajar-flutter.png",
+        "image": null,
         "description": "Pelajari Next.js, framework modern berbasis React untuk membangun website statis dan dinamis yang cepat dan SEO-friendly. Cocok bagi developer front-end yang ingin memperdalam kemampuan di ekosistem JavaScript modern."
     },
     {
@@ -35,7 +35,7 @@
         "sold": 800,
         "videos": 28,
         "status": "published",
-        "image": "/images/dummy/courses/fundamental-uiux.png",
+        "image": null,
         "description": "Kursus ini mengajarkan prinsip-prinsip dasar desain antarmuka pengguna (UI) dan pengalaman pengguna (UX). Sempurna bagi kamu yang ingin mulai karier di bidang desain digital atau ingin meningkatkan tampilan aplikasi."
     },
     {
@@ -48,7 +48,7 @@
         "sold": 1400,
         "videos": 50,
         "status": "published",
-        "image": "/images/dummy/courses/ml-python.png",
+        "image": null,
         "description": "Pelajari konsep dasar hingga lanjutan Machine Learning menggunakan bahasa Python. Kursus ini mencakup supervised learning, unsupervised learning, dan penggunaan library seperti scikit-learn dan pandas. Ideal untuk calon data scientist."
     },
     {
@@ -61,7 +61,7 @@
         "sold": 670,
         "videos": 30,
         "status": "published",
-        "image": "/images/dummy/courses/ci-cd-docker.png",
+        "image": null,
         "description": "Pelajari praktik terbaik Continuous Integration dan Continuous Deployment (CI/CD) serta cara menggunakan Docker untuk environment development. Kursus ini cocok bagi developer yang ingin memahami DevOps modern."
     }
 ]

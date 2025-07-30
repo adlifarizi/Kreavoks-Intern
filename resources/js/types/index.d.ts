@@ -17,47 +17,48 @@ export interface SharedData {
 }
 // Course
 export interface Course {
-  id: number
-  title: string
-  category: string
-  price: number
-  discount_price: any;
-  rating: number
-  sold: number
-  videos: number
-  status: string
-  description?: string
-  image?: string
-  level?: string
-  duration?: string
-  students_count?: number
-  instructor?: {
-    name: string
-    avatar: string
-    role: string
-  }
+    id: number;
+    title: string;
+    category: string;
+    price: number;
+    discount_price: any;
+    rating: number;
+    sold: number;
+    videos: number;
+    status: string;
+    slug: string;
+    description?: string;
+    image?: string;
+    level?: string;
+    duration?: string;
+    students_count?: number;
+    instructor?: {
+        name: string;
+        avatar: string;
+        role: string;
+    };
 }
-
 
 // Event
 export interface Event {
-  discount_price: any;
-  id: number
-  title: string
-  type: string
-  price: number
-  start_date: string
-  status: string
-  description?: string
-  image?: string
-  category?: string
-  location?: string
-  time?: string
-  speaker?: {
-    name: string
-    avatar: string
-    role: string
-  }
+    discount_price: any;
+    id: number;
+    title: string;
+    type: string;
+    price: number;
+    start_date: string;
+    status: string;
+    slug: string;
+    description?: string;
+    image?: string;
+    category?: string;
+    location?: string;
+    time?: string;
+    speaker?: {
+        name: string;
+        avatar: string;
+        role: string;
+    };
 }
 
 // Course
@@ -92,7 +93,6 @@ export interface ServicePackage {
     features: ServicePackageFeature[];
 }
 
-
 export interface Testimonial {
     id: number;
     name: string;
@@ -106,20 +106,20 @@ export interface Testimonial {
 }
 
 export interface Portfolio {
-    id: number
-    title: string
-    client: string
-    category: string
-    description: string
-    image: string
-    year: number
-    link?: string
+    id: number;
+    title: string;
+    client: string;
+    category: string;
+    description: string;
+    image: string;
+    year: number;
+    link?: string;
 }
 
 export interface Mentor {
-    id: number
-    name: string
-    job: string
-    role: string
-    image?: string
+    id: number;
+    name: string;
+    job: string;
+    role: string;
+    image?: string;
 }

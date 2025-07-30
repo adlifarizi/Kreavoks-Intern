@@ -75,13 +75,6 @@ export default function EventCard({ event }: EventCardProps) {
             }`}
             style={{ transitionDelay: "calc(var(--delay, 0) * 100ms)" }}
         >
-            {/* Workshop Tag
-      <div className="absolute top-3 left-3 z-10">
-        <span className="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-full shadow-sm">
-          {event.type.toUpperCase()} #{event.id.toString().padStart(2, "0")}
-        </span>
-      </div> */}
-
             {/* Event Image */}
             <div className="relative aspect-video bg-gray-100 overflow-hidden">
                 <img
@@ -119,7 +112,7 @@ export default function EventCard({ event }: EventCardProps) {
                 {/* Title */}
                 <h3 className="font-semibold text-lg mb-2 line-clamp-2">
                     <Link
-                        href={`/event/${event.id}`}
+                        href={`/event/${event.slug}`}
                         className="hover:text-blue-500 transition-colors duration-300"
                     >
                         {event.title}
@@ -162,7 +155,7 @@ export default function EventCard({ event }: EventCardProps) {
                         </div>
                         {event.status === "active" && (
                             <Link
-                                href={`/event/${event.id}`}
+                                href={`/event/${event.slug}`}
                                 className="px-3 py-1 flex items-center gap-2 text-gray-700 hover:text-black text-sm font-medium rounded-full transition-colors"
                             >
                                 Lihat detail

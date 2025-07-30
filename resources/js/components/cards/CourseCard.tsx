@@ -64,7 +64,7 @@ export default function CourseCard({ course }: CourseCardProps) {
 
         {/* Title */}
         <h3 className="font-semibold text-lg mb-2 line-clamp-2">
-          <Link href={`/course/${course.id}`} className="hover:text-blue-500 transition-colors duration-300">
+          <Link href={`/course/${course.slug}`} className="hover:text-blue-500 transition-colors duration-300">
             {course.title}
           </Link>
         </h3>
