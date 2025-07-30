@@ -159,13 +159,13 @@ export function Navbar() {
                 {/* Action Buttons */}
                 <div className="flex items-center p-2 space-x-1 bg-blue-50 inset-shadow-sm inset-shadow-gray-400/80 rounded-full">
                     <Link
-                        href="#"
+                        href="/register"
                         className="px-3 py-1 rounded-full font-medium text-blue-500 hover:bg-white"
                     >
                         Sign up
                     </Link>
                     <Link
-                        href="#"
+                        href="/login"
                         className="px-3 py-1 rounded-full font-medium text-white bg-blue-500 hover:bg-blue-600"
                     >
                         Sign in
