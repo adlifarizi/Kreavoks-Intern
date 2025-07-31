@@ -6,8 +6,6 @@ import VideoLists, {
     dummySections,
 } from "@/components/sections/detail-program/VideoLists";
 import CourseInfoSection from "@/components/sections/detail-program/CourseInfoSection";
-import RekomendasiCourse from "@/components/sections/detail-program/RekomendasiCourse";
-import dummyCourses from "@/data/dummyCourses.json";
 
 export default function Rai() {
     const { course } = usePage<{ course: Course }>().props;
@@ -47,16 +45,13 @@ export default function Rai() {
                 ]}
                 learn={[
                     "Build beautiful, fast and native-quality apps with Flutter",
-                    "Build iOS and Android apps with just one codebase",
+                    "Build iOS and Android apps with just one codebase...",
                     "Build a portfolio of beautiful Flutter apps to impress any recruiter",
                     "Become proficient in one of the fastest growing technologies",
                 ]}
                 released="July 2021"
                 updated="March 2025"
             />
-
-            {/* Recommended Courses Section */}
-            <RekomendasiCourse courses={dummyCourses} />
         </AppLayout>
     );
 }

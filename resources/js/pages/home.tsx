@@ -2,7 +2,7 @@
 
 // External packages
 import { useState, useEffect, useRef } from "react";
-import { Head, Link, usePage, useForm } from "@inertiajs/react";
+import { Head, usePage, useForm } from "@inertiajs/react";
 import CountUp from "react-countup";
 
 // Layouts

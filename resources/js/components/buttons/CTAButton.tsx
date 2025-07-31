@@ -1,5 +1,6 @@
 import React from "react";
 import { IconType } from "react-icons";
+import { Link } from "@inertiajs/react";
 
 type CTAButtonProps = {
   href: string;
@@ -15,7 +16,7 @@ const CTAButton = ({
   className = "",
 }: CTAButtonProps) => {
   return (
-    <a
+    <Link
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -23,7 +24,7 @@ const CTAButton = ({
     >
       {Icon && <Icon size={20} />}
       {children}
-    </a>
+    </Link>
   );
 };
 

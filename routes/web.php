@@ -83,9 +83,9 @@ Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show'
 //
 // 3. Kemudian bikin route get berdasarkan data yang kamu pilih. bisa dilihat pada contoh di bawah ini
 
-// Route::get('/rai/membangun-website-dengan-next-js', function () {
-//     $courses = json_decode(File::get(resource_path('js/data/dummyCourses.json')), true);
-//     $course = collect($courses)->firstWhere('slug', 'membangun-website-dengan-next-js'); // Ganti sama slug yang kamu pilih
+Route::get('/rai/membangun-website-dengan-next-js', function () {
+    $courses = json_decode(File::get(resource_path('js/data/dummyCourses.json')), true);
+    $course = collect($courses)->firstWhere('slug', 'membangun-website-dengan-next-js'); // Ganti sama slug yang kamu pilih
 
-//     return Inertia::render('rai', ['course' => $course]);
-// });
+    return Inertia::render('rai', ['course' => $course]);
+});

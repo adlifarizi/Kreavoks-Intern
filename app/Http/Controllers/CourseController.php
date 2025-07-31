@@ -11,7 +11,7 @@ class CourseController extends Controller
     public function show($slug)
     {
         $course = Course::where('slug', $slug)->firstOrFail();
-        return Inertia::render('details/CourseDetail', [
+        return Inertia::render('course', [
             'course' => $course,
         ]);
     }

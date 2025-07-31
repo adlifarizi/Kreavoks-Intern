@@ -96,7 +96,7 @@ export default function Portfolio() {
 
     return (
         <AppLayout>
-            <Head title="Portfolio - Kreavoks" />
+            <Head title="Portfolio | Kreavoks" />
             <div
                 className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${
                     isPageLoaded ? "opacity-100" : "opacity-0"

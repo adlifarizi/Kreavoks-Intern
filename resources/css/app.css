@@ -234,6 +234,18 @@
     /* Firefox */
 }
 
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3b82f6; /* blue-500 */
+    border-radius: 12px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 /* Swiper slide auto height + margin for pagination */
 .swiper-slide {
     height: auto !important;
