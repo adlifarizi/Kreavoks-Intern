@@ -15,8 +15,13 @@ export interface SharedData {
     auth: Auth;
     [key: string]: unknown;
 }
+
 // Course
 export interface Course {
+    updated: string[];
+    released: string[];
+    learn: string[];
+    benefit: string[];
     id: number;
     title: string;
     category: string;
@@ -59,18 +64,6 @@ export interface Event {
         avatar: string;
         role: string;
     };
-}
-
-// Course
-export interface Course {
-    id: number;
-    category: string;
-    title: string;
-    price: number;
-    rating: number;
-    sold: number;
-    videos: number;
-    status: string;
 }
 
 export type ServicePackageList = {

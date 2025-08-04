@@ -71,7 +71,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                 {/* Title */}
                 <h3 className="font-semibold text-lg mb-2 line-clamp-2">
                     <Link
-                        href={`/course/${course.slug}`}
+                        href="/detail-course"
                         className="hover:text-blue-500 transition-colors duration-300"
                     >
                         {course.title}
@@ -86,7 +86,6 @@ export default function CourseCard({ course }: CourseCardProps) {
                     </div>
                 </div>
 
-                {/* Price */}
                 {/* Price */}
                 <div className="mt-auto pt-3 border-t border-gray-100">
                     <div className="flex justify-between items-center">
@@ -115,7 +114,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                         </div>
                         {course.status === "active" && (
                             <Link
-                                href={`/course/${course.slug}`}
+                                href="/detail-course"
                                 className="px-3 py-1 flex items-center gap-2 text-gray-700 hover:text-black text-sm font-medium rounded-full transition-colors"
                             >
                                 Lihat detail

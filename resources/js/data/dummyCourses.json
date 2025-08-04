@@ -10,7 +10,21 @@
         "videos": 35,
         "status": "published",
         "image": "/images/dummy/courses/belajar-flutter.png",
-        "description": "Kursus ini akan membimbing kamu memahami dasar-dasar Flutter dari nol. Mulai dari instalasi hingga membangun aplikasi mobile pertama dengan antarmuka menarik. Cocok untuk pemula yang ingin masuk ke dunia pengembangan aplikasi mobile multiplatform."
+        "description": "Kursus ini akan membimbing kamu memahami dasar-dasar Flutter dari nol. Mulai dari instalasi hingga membangun aplikasi mobile pertama dengan antarmuka menarik. Cocok untuk pemula yang ingin masuk ke dunia pengembangan aplikasi mobile multiplatform.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     },
     {
         "id": 2,
@@ -23,7 +37,21 @@
         "videos": 42,
         "status": "published",
         "image": null,
-        "description": "Pelajari Next.js, framework modern berbasis React untuk membangun website statis dan dinamis yang cepat dan SEO-friendly. Cocok bagi developer front-end yang ingin memperdalam kemampuan di ekosistem JavaScript modern."
+        "description": "Pelajari Next.js, framework modern berbasis React untuk membangun website statis dan dinamis yang cepat dan SEO-friendly. Cocok bagi developer front-end yang ingin memperdalam kemampuan di ekosistem JavaScript modern.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     },
     {
         "id": 3,
@@ -36,7 +64,21 @@
         "videos": 28,
         "status": "published",
         "image": null,
-        "description": "Kursus ini mengajarkan prinsip-prinsip dasar desain antarmuka pengguna (UI) dan pengalaman pengguna (UX). Sempurna bagi kamu yang ingin mulai karier di bidang desain digital atau ingin meningkatkan tampilan aplikasi."
+        "description": "Kursus ini mengajarkan prinsip-prinsip dasar desain antarmuka pengguna (UI) dan pengalaman pengguna (UX). Sempurna bagi kamu yang ingin mulai karier di bidang desain digital atau ingin meningkatkan tampilan aplikasi.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     },
     {
         "id": 4,
@@ -49,7 +91,21 @@
         "videos": 50,
         "status": "published",
         "image": null,
-        "description": "Pelajari konsep dasar hingga lanjutan Machine Learning menggunakan bahasa Python. Kursus ini mencakup supervised learning, unsupervised learning, dan penggunaan library seperti scikit-learn dan pandas. Ideal untuk calon data scientist."
+        "description": "Pelajari konsep dasar hingga lanjutan Machine Learning menggunakan bahasa Python. Kursus ini mencakup supervised learning, unsupervised learning, dan penggunaan library seperti scikit-learn dan pandas. Ideal untuk calon data scientist.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     },
     {
         "id": 5,
@@ -62,6 +118,20 @@
         "videos": 30,
         "status": "published",
         "image": null,
-        "description": "Pelajari praktik terbaik Continuous Integration dan Continuous Deployment (CI/CD) serta cara menggunakan Docker untuk environment development. Kursus ini cocok bagi developer yang ingin memahami DevOps modern."
+        "description": "Pelajari praktik terbaik Continuous Integration dan Continuous Deployment (CI/CD) serta cara menggunakan Docker untuk environment development. Kursus ini cocok bagi developer yang ingin memahami DevOps modern.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     }
 ]

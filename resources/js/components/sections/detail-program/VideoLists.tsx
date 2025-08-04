@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import { CirclePlay } from "lucide-react";
 
-export const dummySections = [
+export const dummyLists = [
     {
         title: "Intro, setup & instalasi",
         videos: [
@@ -82,7 +82,7 @@ export default function VideoLists({ sections }: CourseVideoListProps) {
                     } ${idx === sections.length - 1 ? "rounded-b-xl" : ""}`}
                 >
                     <button
-                        className={`w-full flex justify-between items-center px-6 py-4 text-white bg-blue-500 font-semibold text-left focus:outline-none transition ${
+                        className={`w-full flex justify-between items-center px-6 py-4 text-white bg-blue-500 font-semibold text-left focus:outline-none cursor-pointer transition ${
                             idx === 0 ? "rounded-t-xl" : ""
                         } ${idx === sections.length - 1 ? "rounded-b-xl" : ""}`}
                         onClick={() => toggleSection(idx)}
