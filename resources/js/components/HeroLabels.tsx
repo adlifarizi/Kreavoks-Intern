@@ -5,17 +5,17 @@ const HeroLabels: FC = () => {
     return (
         <>
             {/* 🔴 100% TERPERCAYA */}
-            <div className="absolute bottom-16 right-20 animate-wander-1 rotate-6">
+            <div className="absolute hidden lg:block bottom-16 right-20 animate-bounce rotate-6">
                 <div className="flex items-center">
                     <MousePointer2 size={28} fill='#EB524A' className="text-[#EB524A] rotate-[-40deg]" />
-                    <span className="bg-[#EB524A] text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">
+                    <span className="bg-[#EB524A] text-white text-xl font-bold px-3 py-1 rounded-full shadow-md">
                         100% TERPERCAYA
                     </span>
                 </div>
             </div>
 
             {/* Discount */}
-            <div className="absolute -top-10 left-10 bg-white rounded-xl border border-blue-400 p-4 shadow-md w-fit text-left animate-float">
+            <div className="absolute hidden lg:block -top-10 left-10 bg-white rounded-xl border border-blue-400 p-4 shadow-md w-fit text-left animate-float">
                 {/* Garis hias atas kiri */}
                 <div className="flex items-center gap-1 mb-2">
                     <span className="w-4 h-[2px] bg-blue-500 rounded"></span>
@@ -40,9 +40,9 @@ const HeroLabels: FC = () => {
 
 
             {/* 🔵 Solusi DIGITAL */}
-            <div className="absolute top-0 left-2/5 animate-wander-3 -rotate-[20deg]">
+            <div className="absolute hidden lg:block -top-20 right-30 animate-float -rotate-[20deg]">
                 <div className="flex items-center">
-                    <span className="bg-blue-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+                    <span className="bg-blue-500 text-white text-xl font-semibold px-3 py-1 rounded-full shadow-md">
                         Solusi DIGITAL
                     </span>
                     <MousePointer2 size={26} fill='#4082E6' className="text-blue-500 rotate-[135deg]" />

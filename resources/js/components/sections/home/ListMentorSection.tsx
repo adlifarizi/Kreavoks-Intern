@@ -36,7 +36,7 @@ const ListMentorSection = forwardRef<HTMLDivElement, ListMentorSectionProps>(
 
                     <div className="relative w-full">
                         {/* Gradient mask kiri */}
-                        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+                        <div className="pointer-events-none absolute -left-2 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
                         {/* Gradient mask kanan */}
                         <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-24 z-20 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
 

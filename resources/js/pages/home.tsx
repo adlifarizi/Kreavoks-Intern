@@ -219,18 +219,18 @@ export default function Home() {
                         </div>
 
                         {/* Right Content: gambar full-width di dalam container */}
-                        <div className="relative px-6 md:px-12 lg:px-16 flex items-center justify-center">
+                        <div className="relative px-6 md:px-12 lg:px-16 flex items-center justify-center group">
                             {/* Background image absolute - no animation */}
                             <img
                                 src="/images/backgrounds/HeroBg.png"
                                 alt="Background"
-                                className="absolute -top-30 md:-top-48 right-10 w-full md:max-w-[800px] h-auto"
+                                className="absolute -top-30 md:-top-48 right-10 w-full md:max-w-[800px] h-auto group-hover:scale-95 transition-transform duration-500"
                             />
                             {/* Hero foreground image */}
                             <img
                                 src="/images/hero-people.png"
                                 alt="Hero"
-                                className="relative w-full md:max-w-[600px] h-auto -left-6 animate-float"
+                                className="relative w-full md:max-w-[600px] h-auto -left-6 animate-float group-hover:scale-105 transition-transform duration-500"
                             />
                             <HeroLabels />
                         </div>
