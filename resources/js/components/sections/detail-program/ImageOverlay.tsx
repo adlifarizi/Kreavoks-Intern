@@ -4,9 +4,10 @@ import { Link } from "@inertiajs/react";
 interface CourseImageOverlayProps {
     src: string;
     alt: string;
+    slug: string;
 }
 
-export default function ImageOverlay({ src, alt }: CourseImageOverlayProps) {
+export default function ImageOverlay({ src, alt, slug }: CourseImageOverlayProps) {
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -18,7 +19,7 @@ export default function ImageOverlay({ src, alt }: CourseImageOverlayProps) {
             <img
                 src={src}
                 alt={alt}
-                className="w-full h-[500px] object-cover rounded-2xl transition-transform duration-500"
+                className="w-full h-[220px] md:h-[320px] lg:h-[400px] xl:h-[500px] object-cover rounded-2xl transition-transform duration-500"
             />
             {/* Overlay on hover */}
             <div
@@ -31,7 +32,7 @@ export default function ImageOverlay({ src, alt }: CourseImageOverlayProps) {
                 <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 text-center drop-shadow-lg">
                     Yuk gabung sekarang!
                 </h2>
-                <Link href="/detail-course/checkout">
+                <Link href={`/program/detail-course/${slug}/checkout`}>
                     <button className="px-6 py-2 bg-blue-500 text-white text-lg md:text-xl font-semibold rounded-lg shadow-lg hover:bg-blue-600 cursor-pointer transition">
                         Beli Kelas
                     </button>

@@ -73,7 +73,7 @@ export default function VideoLists({ sections }: CourseVideoListProps) {
     };
 
     return (
-        <div className="w-full md:w-1/3 flex flex-col">
+        <div className="w-full lg:w-1/3 flex flex-col">
             {sections.map((section, idx) => (
                 <div
                     key={idx}

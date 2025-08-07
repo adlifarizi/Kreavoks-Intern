@@ -133,5 +133,32 @@
             "avatar": "/images/dummy/mentors/setiady.png",
             "role": "Developer & Instructor"
         }
+    },
+    {
+        "id": 6,
+        "category": "DevOps",
+        "title": "Dasar-dasar CI/CD dan Docker",
+        "slug": "dasar-dasar-ci-cd-dan-docker",
+        "price": 289000,
+        "rating": 4.6,
+        "sold": 670,
+        "videos": 30,
+        "status": "published",
+        "image": null,
+        "description": "Pelajari praktik terbaik Continuous Integration dan Continuous Deployment (CI/CD) serta cara menggunakan Docker untuk environment development. Kursus ini cocok bagi developer yang ingin memahami DevOps modern.",
+        "benefit": ["Certificate", "Resources", "Articles", "Consultation"],
+        "learn": [
+            "Build beautiful, fast and native-quality apps with Flutter",
+            "Build iOS and Android apps with just one codebase",
+            "Build a portfolio of beautiful Flutter apps to impress any recruiter",
+            "Become proficient in one of the fastest growing technologies"
+        ],
+        "released": "July 2021",
+        "updated": "March 2025",
+        "instructor": {
+            "name": "Setiay Ibrahim Anwar",
+            "avatar": "/images/dummy/mentors/setiady.png",
+            "role": "Developer & Instructor"
+        }
     }
 ]

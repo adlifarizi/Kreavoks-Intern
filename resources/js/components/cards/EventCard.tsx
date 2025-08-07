@@ -112,7 +112,7 @@ export default function EventCard({ event }: EventCardProps) {
                 {/* Title */}
                 <h3 className="font-semibold text-lg mb-2 line-clamp-2">
                     <Link
-                        href={`/event/${event.slug}`}
+                        href="/detail-event"
                         className="hover:text-blue-500 transition-colors duration-300"
                     >
                         {event.title}
@@ -155,7 +155,7 @@ export default function EventCard({ event }: EventCardProps) {
                         </div>
                         {event.status === "active" && (
                             <Link
-                                href={`/event/${event.slug}`}
+                                href="/detail-event"
                                 className="px-3 py-1 flex items-center gap-2 text-gray-700 hover:text-black text-sm font-medium rounded-full transition-colors"
                             >
                                 Lihat detail

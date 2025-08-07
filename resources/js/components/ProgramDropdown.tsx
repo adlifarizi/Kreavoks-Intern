@@ -122,7 +122,7 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
                         onClick={() => setOpen(false)}
                     ></div>
                     {/* Dropdown */}
-                    <div className="fixed left-1/2 top-[100px] -translate-x-1/2 w-[90vw] max-w-[1200px] bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl flex p-8 z-[100] transition-all duration-300">
+                    <div className="fixed left-1/2 top-[100px] -translate-x-1/2 w-[90vw] max-w-[1200px] bg-white backdrop-blur-lg rounded-3xl shadow-2xl flex p-8 z-[100] transition-all duration-300">
                         {/* Left Menu */}
                         <div className="flex flex-col gap-4 flex-[0_0_440px] max-w-[440px]">
                             {programItems.map((item) => (

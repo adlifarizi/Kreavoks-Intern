@@ -74,7 +74,7 @@ export function Navbar() {
                 </Link>
                 <Link href="/program">
                     <ProgramDropdown
-                        isActive={url.replace(/\/+$/, "") === "/program"}
+                        isActive={url.startsWith("/program")}
                     />
                 </Link>
                 <Link

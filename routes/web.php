@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\File;
@@ -61,16 +59,28 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/detail-course', function () {
-    return Inertia::render('course');
-});
-Route::get('/detail-event', function () {
-    return Inertia::render('event');
+
+Route::get('/program/detail-course/{slug}', function ($slug) {
+    $courses = json_decode(File::get(resource_path('js/data/dummyCourses.json')), true);
+    $course = collect($courses)->firstWhere('slug', $slug);
+    return Inertia::render('course', [
+        'course' => $course,
+        'recommendedCourses' => $courses,
+    ]);
 });
 
-Route::get('/detail-course/checkout', function () {
+Route::get('/detail-event/{slug}', function ($slug) {
+    $events = json_decode(File::get(resource_path('js/data/dummyEvents.json')), true);
+    $event = collect($events)->firstWhere('slug', $slug);
+    return Inertia::render('event', [
+        'event' => $event,
+        'recommendedEvents' => $events,
+    ]);
+})->name('event.detail');
+
+Route::get('/program/detail-course/{slug}/checkout', function ($slug) {
     $courses = json_decode(File::get(resource_path('js/data/dummyCourses.json')), true);
-    $course = collect($courses)->firstWhere('slug', 'belajar-flutter-untuk-pemula');
+    $course = collect($courses)->firstWhere('slug', $slug);
     return Inertia::render('checkout', [
         'course' => $course,
     ]);
