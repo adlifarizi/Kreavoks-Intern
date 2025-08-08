@@ -1,15 +1,21 @@
 import CourseCard from "@/components/cards/CourseCard";
-import { Course } from "@/types";
+import EventCard from "@/components/cards/EventCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
-export default function RecommendedCourses({
-    courses,
-    currentSlug,
-}: {
-    courses: Course[];
+type RecommendedSectionProps = {
+    items: any[];
     currentSlug?: string;
-}) {
+    type?: "course" | "event";
+    title?: string;
+};
+
+export default function RecommendedSection({
+    items,
+    currentSlug,
+    type = "course",
+    title = "Recommended for you",
+}: RecommendedSectionProps) {
     const sliderRef = useRef<HTMLDivElement>(null);
 
     const scroll = (direction: "left" | "right") => {
@@ -22,14 +28,14 @@ export default function RecommendedCourses({
         }
     };
 
-    // Filter agar course yang sedang dibuka tidak muncul
-    const filteredCourses = currentSlug
-        ? courses.filter((c) => c.slug !== currentSlug)
-        : courses;
+    // Filter agar item yang sedang dibuka tidak muncul
+    const filteredItems = currentSlug
+        ? items.filter((c) => c.slug !== currentSlug)
+        : items;
 
     return (
         <section className="container mx-auto px-6 md:px-12 lg:px-16 py-12">
-            <h2 className="font-semibold text-xl mb-4">Recommended for you</h2>
+            <h2 className="font-semibold text-xl mb-4">{title}</h2>
             <div className="relative">
                 <button
                     className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-white border border-blue-500 shadow rounded-full w-10 h-10 items-center justify-center hover:bg-blue-100 transition"
@@ -47,9 +53,9 @@ export default function RecommendedCourses({
                         minHeight: "440px",
                     }}
                 >
-                    {filteredCourses.map((course, idx) => (
+                    {filteredItems.map((item, idx) => (
                         <div
-                            key={course.id}
+                            key={item.id}
                             style={{
                                 minWidth: "340px",
                                 maxWidth: "340px",
@@ -60,7 +66,11 @@ export default function RecommendedCourses({
                             }}
                             className={idx > 3 ? "hidden md:flex" : ""}
                         >
-                            <CourseCard course={course} />
+                            {type === "course" ? (
+                                <CourseCard course={item} />
+                            ) : (
+                                <EventCard event={item} />
+                            )}
                         </div>
                     ))}
                 </div>

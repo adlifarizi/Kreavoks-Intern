@@ -12,7 +12,6 @@ import Searchbar from "@/components/sections/portfolio/Searchbar";
 import PortfolioGrid from "@/components/sections/portfolio/PortfolioGrid";
 
 export default function Portfolio() {
-    <Head title="Kreavoks | Portfolio" />;
     const { auth } = usePage<SharedData>().props;
     const { portfolios } = usePage<SharedData & { portfolios: Portfolio[] }>()
         .props || { portfolios: [] };
@@ -96,7 +95,7 @@ export default function Portfolio() {
 
     return (
         <AppLayout>
-            <Head title="Portfolio | Kreavoks" />
+            <Head title="Portfolio" />
             <div
                 className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${
                     isPageLoaded ? "opacity-100" : "opacity-0"

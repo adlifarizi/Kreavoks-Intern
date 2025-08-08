@@ -19,7 +19,6 @@ import type { HeroTab } from "@/components/sections/program/ProgramHero";
 import ProgramCTA from "@/components/sections/program/ProgramCTA";
 
 export default function Program() {
-    <Head title="Kreavoks | Program" />;
     const { auth } = usePage<SharedData>().props;
     const { events } = usePage<SharedData & { events: Event[] }>().props;
     const { courses } = usePage<SharedData & { courses: Course[] }>().props;
@@ -44,24 +43,39 @@ export default function Program() {
 
     // Filter and sort items based on all criteria
     const filteredItems = (() => {
-        let items =
-            activeTab === "courses"
-                ? courses.filter(
-                      (course) =>
-                          (selectedCategory === "all" ||
-                              course.category === selectedCategory) &&
-                          course.title
-                              .toLowerCase()
-                              .includes(searchQuery.toLowerCase())
-                  )
-                : events.filter(
-                      (event) =>
-                          (selectedCategory === "all" ||
-                              event.type === selectedCategory) &&
-                          event.title
-                              .toLowerCase()
-                              .includes(searchQuery.toLowerCase())
-                  );
+        let items: (Course | Event)[] = [];
+
+        if (activeTab === "courses") {
+            items = courses.filter(
+                (course) =>
+                    (selectedCategory === "all" ||
+                        course.category === selectedCategory) &&
+                    course.title
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase()) &&
+                    (ratingFilter === null || course.rating >= ratingFilter)
+            );
+        } else if (activeTab === "events") {
+            items = events.filter(
+                (event) =>
+                    ["Event", "Workshop", "Webinar"].includes(event.type) &&
+                    (selectedCategory === "all" ||
+                        event.type === selectedCategory) &&
+                    event.title
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())
+            );
+        } else if (activeTab === "bootcamp") {
+            items = events.filter(
+                (event) =>
+                    event.type === "Bootcamp" &&
+                    (selectedCategory === "all" ||
+                        event.type === selectedCategory) &&
+                    event.title
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())
+            );
+        }
 
         // Apply rating filter for courses
         if (activeTab === "courses" && ratingFilter !== null) {
@@ -157,7 +171,7 @@ export default function Program() {
 
     return (
         <AppLayout>
-            <Head title="Program - Kreavoks" />
+            <Head title="Program" />
             <style>{`
         .animate-in {
           animation: fadeIn 0.6s ease forwards;

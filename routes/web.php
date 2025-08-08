@@ -65,16 +65,16 @@ Route::get('/program/detail-course/{slug}', function ($slug) {
     $course = collect($courses)->firstWhere('slug', $slug);
     return Inertia::render('course', [
         'course' => $course,
-        'recommendedCourses' => $courses,
+        'courses' => $courses,
     ]);
 });
 
-Route::get('/detail-event/{slug}', function ($slug) {
+Route::get('/program/detail-event/{slug}', function ($slug) {
     $events = json_decode(File::get(resource_path('js/data/dummyEvents.json')), true);
     $event = collect($events)->firstWhere('slug', $slug);
     return Inertia::render('event', [
         'event' => $event,
-        'recommendedEvents' => $events,
+        'events' => $events,
     ]);
 })->name('event.detail');
 
@@ -84,7 +84,15 @@ Route::get('/program/detail-course/{slug}/checkout', function ($slug) {
     return Inertia::render('checkout', [
         'course' => $course,
     ]);
-})->name('checkout');
+})->name('checkout.course');
+
+Route::get('/program/detail-event/{slug}/checkout', function ($slug) {
+    $events = json_decode(File::get(resource_path('js/data/dummyEvents.json')), true);
+    $event = collect($events)->firstWhere('slug', $slug);
+    return Inertia::render('checkout', [
+        'event' => $event,
+    ]);
+})->name('checkout.event');
 
 
 // ---------------------------------------------

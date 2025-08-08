@@ -45,25 +45,39 @@ export interface Course {
 }
 
 // Event
-export interface Event {
-    discount_price: any;
-    id: number;
-    title: string;
-    type: string;
+export interface EventBatch {
+    name: string;
     price: number;
     start_date: string;
-    status: string;
+    end_date: string;
+    time: string;
+    status?: string;
+}
+
+export interface Event {
+    id: number;
+    type: string;
+    title: string;
     slug: string;
+    price: number;
+    start_date: string;
+    end_date: string;
+    time: string;
+    mode: string;
+    status: string;
+    image?: string | null;
     description?: string;
-    image?: string;
+    benefit?: string[];
+    learn?: string[];
     category?: string;
     location?: string;
-    time?: string;
+    discount_price?: any;
     speaker?: {
         name: string;
         avatar: string;
         role: string;
     };
+    batches?: EventBatch[];
 }
 
 export type ServicePackageList = {

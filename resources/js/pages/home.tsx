@@ -34,7 +34,6 @@ import TestimonialSection from "@/components/sections/home/TestimonialSection";
 import CTAMentorSection from "@/components/sections/home/CTAMentorSection";
 
 export default function Home() {
-    <Head title="Kreavoks | Home" />;
     const { auth } = usePage<SharedData>().props;
     const { events } = usePage<SharedData & { events: Event[] }>().props;
     const { servicePackages } = usePage<
@@ -123,7 +122,7 @@ export default function Home() {
 
     return (
         <AppLayout>
-            <Head title="Kreavoks" />
+            <Head title="Home" />
             <div
                 className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${
                     isPageLoaded ? "opacity-100" : "opacity-0"

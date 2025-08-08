@@ -27,8 +27,8 @@ export default function CourseInfoSection({
     const [showMore, setShowMore] = useState(false);
 
     const words = description.split(" ");
-    const isLong = words.length > 150;
-    const shortDesc = words.slice(0, 150).join(" ") + (isLong ? "..." : "");
+    const isLong = words.length > 100;
+    const shortDesc = words.slice(0, 100).join(" ") + (isLong ? "..." : "");
 
     return (
         <div className="container mx-auto px-6 md:px-12 lg:px-16 py-12">

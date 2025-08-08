@@ -4,10 +4,10 @@ import AppLayout from "@/layouts/app-layout";
 import ImageOverlay from "@/components/sections/detail-program/ImageOverlay";
 import VideoLists, { dummyLists } from "@/components/sections/detail-program/VideoLists";
 import CourseInfoSection from "@/components/sections/detail-program/CourseInfoSection";
-import RecommendedCourses from "@/components/sections/detail-program/RecommendedCourses";
+import RecommendedSection from "@/components/sections/detail-program/RecommendedSection";
 
 export default function CoursePage() {
-    const { course, recommendedCourses } = usePage<{ course: Course; recommendedCourses: Course[] }>().props;
+    const { course, courses } = usePage<{ course: Course; courses: Course[] }>().props;
 
     return (
         <AppLayout>
@@ -35,7 +35,7 @@ export default function CoursePage() {
                 released={Array.isArray(course.released) ? course.released.join(", ") : (course.released ?? "")}
                 updated={Array.isArray(course.updated) ? course.updated.join(", ") : (course.updated ?? "")}
             />
-            <RecommendedCourses courses={recommendedCourses} currentSlug={course.slug} />
+            <RecommendedSection items={courses} currentSlug={course.slug} type="course" />
         </AppLayout>
     );
 }

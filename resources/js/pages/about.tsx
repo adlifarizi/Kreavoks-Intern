@@ -11,7 +11,6 @@ import AdvantagesSection from "@/components/sections/about/AdvantagesSection";
 import TeamSection from "@/components/sections/about/TeamSection";
 
 export default function About() {
-    <Head title="Kreavoks | About" />;
     const { auth } = usePage<SharedData>().props;
 
     // Company stats
@@ -73,7 +72,7 @@ export default function About() {
 
     return (
         <AppLayout>
-            <Head title="About Us - Kreavoks" />
+            <Head title="About" />
             <div
                 className={`flex min-h-screen flex-col bg-white text-black transition-opacity duration-500 ${
                     isPageLoaded ? "opacity-100" : "opacity-0"
