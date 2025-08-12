@@ -13,6 +13,7 @@ export default function EventPage() {
     const [showModal, setShowModal] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [selectedBatch, setSelectedBatch] = useState<string>("");
 
     // State untuk deskripsi panjang
     const [showMore, setShowMore] = useState(false);
@@ -205,6 +206,27 @@ export default function EventPage() {
                                     required
                                 />
                             </div>
+                            {event.batches && event.batches.length > 0 && (
+                                <div className="mb-6">
+                                    {event.batches.map((batch, idx) => (
+                                        <label
+                                            key={batch.name}
+                                            className="flex items-center gap-2 mb-2 cursor-pointer text-base"
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="batch"
+                                                value={batch.name}
+                                                checked={selectedBatch === batch.name}
+                                                onChange={() => setSelectedBatch(batch.name)}
+                                                className="accent-blue-500 w-5 h-5"
+                                                required
+                                            />
+                                            {batch.name}
+                                        </label>
+                                    ))}
+                                </div>
+                            )}
                             <div className="flex gap-3">
                                 <button
                                     type="button"

@@ -27,7 +27,7 @@ export default function PortfolioCard({ portfolio }: Props) {
             <div>
                 <div className="flex justify-between items-start mb-2">
                     <h3 className="text-lg font-semibold">{portfolio.title}</h3>
-                    <span className="text-sm text-gray-500">{portfolio.year}</span>
+                    <span>{portfolio.year}</span>
                 </div>
                 <p className="text-gray-600 text-sm mb-3">{portfolio.client}</p>
                 <p className="text-gray-700 line-clamp-2">{portfolio.description}</p>

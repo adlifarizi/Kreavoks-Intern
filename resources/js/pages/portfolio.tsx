@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { Head, usePage } from "@inertiajs/react";
 import AppLayout from "@/layouts/app-layout";
 import type { Portfolio, SharedData } from "@/types";
-import PortfolioCard from "@/components/cards/PortfolioCard";
 import CategoryFilterPortfolio from "@/components/sections/portfolio/CategoryFilterPortfolio";
 import HeroSection from "@/components/sections/portfolio/HeroSection";
 import CtaSection from "@/components/sections/portfolio/CTASection";
@@ -101,37 +100,30 @@ export default function Portfolio() {
                     isPageLoaded ? "opacity-100" : "opacity-0"
                 }`}
             >
-                {/* Categories Filter */}
-                <CategoryFilterPortfolio
-                    categories={categories}
-                    selectedCategory={selectedCategory}
-                    onSelectCategory={setSelectedCategory}
-                />
-
                 {/* Hero Section */}
                 <HeroSection ref={heroRef} />
+
+                {/* Filter & Searchbar */}
+                <div className="container mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-4 mt-6 mb-2">
+                    <CategoryFilterPortfolio
+                        categories={categories}
+                        selectedCategory={selectedCategory}
+                        onSelectCategory={setSelectedCategory}
+                        className="flex-1"
+                    />
+                    <div className="w-full md:w-96">
+                        <Searchbar
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                        />
+                    </div>
+                </div>
 
                 {/* Main Content */}
                 <section
                     ref={mainContentRef}
                     className="container mx-auto px-6 md:px-12 lg:px-16 py-12 opacity-0"
                 >
-                    {/* Search and Results Count */}
-                    <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 lg:gap-32 mb-12">
-                        {/* Search (ditampilkan dulu di mobile) */}
-                        <div className="w-full md:flex-1 order-1 md:order-2">
-                            <Searchbar
-                                searchQuery={searchQuery}
-                                setSearchQuery={setSearchQuery}
-                            />
-                        </div>
-
-                        {/* Results Count */}
-                        <div className="flex-shrink-0 text-gray-600 order-2 md:order-1">
-                            Menampilkan {filteredItems.length} portofolio
-                        </div>
-                    </div>
-
                     {/* Portfolio Grid */}
                     <PortfolioGrid
                         paginatedItems={paginatedItems}

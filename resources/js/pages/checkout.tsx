@@ -1,12 +1,16 @@
 import AppLayout from "@/layouts/app-layout";
 import { Head, usePage } from "@inertiajs/react";
 import type { Course, Event } from "@/types";
-import { Wallet } from "lucide-react";
+import { Wallet, Ticket } from "lucide-react";
+import { useState } from "react";
 
 export default function CheckoutPage() {
     // Ambil course atau event dari props
     const { course, event } = usePage<{ course?: Course; event?: Event }>().props;
     const data = course || event;
+
+    // State voucher
+    const [voucher, setVoucher] = useState("");
 
     return (
         <AppLayout>
@@ -23,6 +27,21 @@ export default function CheckoutPage() {
                         className="w-[600px] h-[400px] object-cover rounded-xl"
                     />
                     <div className="flex-1 w-full">
+                        {/* Input Voucher */}
+                        <div className="mb-6">
+                            <label className="flex items-center gap-2 font-semibold text-xl mb-2">
+                                <Ticket className="w-6 h-6" />
+                                Input Voucher
+                            </label>
+                            <input
+                                type="text"
+                                className="w-full border border-gray-500 rounded-lg px-4 py-3 mt-2 font-medium text-gray-700"
+                                placeholder="Masukan kode voucher anda"
+                                value={voucher}
+                                onChange={e => setVoucher(e.target.value)}
+                            />
+                        </div>
+                        {/* Total Biaya */}
                         <div className="flex items-center gap-6 mb-2 md:mb-8">
                             <Wallet className="w-8 h-8" />
                             <span className="font-semibold text-lg md:text-2xl">Total Biaya</span>

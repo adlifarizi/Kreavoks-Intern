@@ -25,7 +25,7 @@ export default function CourseInfoSection({
     updated,
 }: CourseInfoSectionProps) {
     const [showMore, setShowMore] = useState(false);
-
+    
     const words = description.split(" ");
     const isLong = words.length > 100;
     const shortDesc = words.slice(0, 100).join(" ") + (isLong ? "..." : "");

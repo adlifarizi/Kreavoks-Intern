@@ -1,40 +1,73 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
+
+function useCountUp(target: number, duration = 1200) {
+    const [count, setCount] = useState(0);
+    const raf = useRef<number | null>(null);
+
+    useEffect(() => {
+        let start: number | null = null;
+        function animate(ts: number) {
+            if (!start) start = ts;
+            const progress = Math.min((ts - start) / duration, 1);
+            setCount(Math.floor(progress * target));
+            if (progress < 1) {
+                raf.current = requestAnimationFrame(animate);
+            } else {
+                setCount(target);
+            }
+        }
+        raf.current = requestAnimationFrame(animate);
+        return () => {
+            if (raf.current) cancelAnimationFrame(raf.current);
+        };
+    }, [target, duration]);
+
+    return count;
+}
 
 const HeroSection = forwardRef<HTMLElement>((_, ref) => {
-  return (
-    <section
-      ref={ref}
-      className="container mx-auto px-6 md:px-12 lg:px-16 py-12 flex justify-center mt-8"
-    >
-      <div className="w-full rounded-[40px] overflow-hidden relative flex flex-col md:flex-row items-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-50 px-4 lg:px-16 py-4 md:py-8 shadow-lg">
-        {/* Left: Text */}
-        <div className="flex-[2] flex flex-col justify-center items-start z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-            Portofolio Karya Terbaik Kami
-          </h1>
-          <p className="text-md md:text-lg text-blue-50 max-w-xl">
-            Lihat berbagai proyek yang telah kami kerjakan untuk klien dari berbagai industri. 
-            Setiap proyek dirancang dengan perhatian terhadap detail dan fokus pada kebutuhan pengguna.
-          </p>
-        </div>
+    const stats = [
+        { id: 1, value: 5, suffix: "+", label: "Tahun Pengalaman" },
+        { id: 2, value: 100, suffix: "+", label: "Proyek Selesai" },
+        { id: 3, value: 50, suffix: "+", label: "Klien Puas" },
+        { id: 4, value: 2800, suffix: "+", label: "Peserta Kursus" },
+    ];
 
-        {/* Right: Image */}
-        <div className="hidden flex-1 md:flex justify-end items-center z-10">
-          <img
-            src="/images/portfolio-hero-people.png"
-            alt="Portfolio Hero"
-            className="object-cover md:-mb-10 h-full"
-          />
-        </div>
+    // Gunakan animasi count up untuk setiap stat
+    const counts = stats.map((stat) => useCountUp(stat.value, 1200 + stat.id * 200));
 
-        {/* Decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -right-30 top-10 w-1/2 h-1/5 rotate-[50deg] bg-yellow-300 rounded-full blur-xl"></div>
-          <div className="absolute right-0 bottom-10 w-1/3 h-1/5 rotate-[15deg] bg-yellow-300 rounded-full blur-xl"></div>
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section
+            ref={ref}
+            className="container mx-auto px-6 md:px-12 lg:px-16 pt-8 mb-10"
+        >
+            <div className="w-full rounded-3xl border border-gray-200 bg-white overflow-hidden flex flex-col md:flex-row">
+                {/* Left: Text */}
+                <div className="flex-1 flex flex-col justify-center items-start px-4 py-8 md:py-12">
+                    <h1 className="text-2xl md:text-4xl lg:text-6xl font-extrabold text-blue-500 mb-4 leading-tight">
+                        Portofolio Karya Terbaik Kami
+                    </h1>
+                    <p className="text-base md:text-lg lg:text-xl text-gray-700 max-w-3xl">
+                        Lihat berbagai proyek yang telah kami kerjakan untuk klien dari berbagai industri setiap proyek dirancang dengan perhatian terhadap detail fokus pada kebutuhan pengguna
+                    </p>
+                </div>
+                {/* Right: Stats */}
+                <div className="w-full md:w-1/4 grid grid-cols-2 md:grid-cols-1 border-t md:border-t-0 md:border-l border-gray-200">
+                    {stats.map((stat, idx) => (
+                        <div
+                            key={stat.id}
+                            className={`flex flex-col items-center justify-center py-8 ${idx !== 0 && "border-t md:border-t-0 md:border-l border-gray-200"}`}
+                        >
+                            <div className="text-xl md:text-3xl lg:text-5xl font-bold text-blue-500 mb-1">
+                                {counts[idx].toLocaleString()}<span>{stat.suffix}</span>
+                            </div>
+                            <div className="text-gray-500 text-sm md:text-lg lg:text-xl text-center">{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 });
 
 export default HeroSection;

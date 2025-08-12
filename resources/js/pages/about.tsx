@@ -13,14 +13,6 @@ import TeamSection from "@/components/sections/about/TeamSection";
 export default function About() {
     const { auth } = usePage<SharedData>().props;
 
-    // Company stats
-    // const stats = [
-    //     { id: 1, value: "5+", label: "Tahun Pengalaman" },
-    //     { id: 2, value: "100+", label: "Proyek Selesai" },
-    //     { id: 3, value: "50+", label: "Klien Puas" },
-    //     { id: 4, value: "2,800+", label: "Peserta Kursus" },
-    // ];
-
     const [isPageLoaded, setIsPageLoaded] = useState(false);
 
     // Refs for scroll animations
@@ -28,7 +20,6 @@ export default function About() {
     const storyRef = useRef<HTMLDivElement>(null);
     const missionVisionRef = useRef<HTMLDivElement>(null);
     const advantagesRef = useRef<HTMLDivElement>(null);
-    // const statsRef = useRef<HTMLDivElement>(null);
     const teamRef = useRef<HTMLDivElement>(null);
     // const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +45,6 @@ export default function About() {
             storyRef,
             missionVisionRef,
             advantagesRef,
-            // statsRef,
             teamRef,
             // ctaRef,
         ];
@@ -89,25 +79,6 @@ export default function About() {
 
                 {/* Why Kreavoks */}
                 <AdvantagesSection ref={advantagesRef} />
-
-                {/* Stats Section
-                <section
-                    ref={statsRef}
-                    className="py-16 bg-blue-500 text-white opacity-0"
-                >
-                    <div className="container mx-auto px-6 md:px-12 lg:px-16">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            {stats.map((stat) => (
-                                <div key={stat.id} className="text-center">
-                                    <div className="text-4xl md:text-5xl font-bold mb-2">
-                                        {stat.value}
-                                    </div>
-                                    <div>{stat.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section> */}
 
                 {/* Team Section */}
                 <TeamSection ref={teamRef} />
