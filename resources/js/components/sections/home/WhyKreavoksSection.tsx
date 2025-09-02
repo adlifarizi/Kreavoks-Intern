@@ -36,35 +36,35 @@ const WhyKreavoksSection = forwardRef<HTMLDivElement>((_, ref) => {
                     {[
                         {
                             icon: (
-                                <Fingerprint className="w-12 h-12 group-hover:text-blue-500" />
+                                <Fingerprint className="w-8 h-8 group-hover:text-blue-500" />
                             ),
                             title: "Solusi Digital Terpadu",
                             desc: "Layanan lengkap mulai dari desain, pengembangan, hingga strategi digital yang menyeluruh.",
                         },
                         {
                             icon: (
-                                <ShieldUser className="w-12 h-12 group-hover:text-blue-500" />
+                                <ShieldUser className="w-8 h-8 group-hover:text-blue-500" />
                             ),
                             title: "Tim Profesional & Berpengalaman",
                             desc: "Didukung oleh tim ahli di berbagai bidang, Kreavoks siap mewujudkan ide-ide Anda menjadi kenyataan.",
                         },
                         {
                             icon: (
-                                <UsersRound className="w-12 h-12 group-hover:text-blue-500" />
+                                <UsersRound className="w-8 h-8 group-hover:text-blue-500" />
                             ),
                             title: "Pendekatan Kolaboratif",
                             desc: "Didukung oleh tim ahli di berbagai bidang, Kreavoks siap mewujudkan ide-ide Anda menjadi kenyataan.",
                         },
                         {
                             icon: (
-                                <FileTerminal className="w-12 h-12 group-hover:text-blue-500" />
+                                <FileTerminal className="w-8 h-8 group-hover:text-blue-500" />
                             ),
                             title: "Pembelajaran Berbasis Proyek",
                             desc: "Pembelajaran yang melibatkan langsung dalam proyek nyata.",
                         },
                         {
                             icon: (
-                                <SmilePlus className="w-12 h-12 group-hover:text-blue-500" />
+                                <SmilePlus className="w-8 h-8 group-hover:text-blue-500" />
                             ),
                             title: "Mengedepankan Kepuasan Klien",
                             desc: "Didukung oleh tim ahli di berbagai bidang, Kreavoks siap mewujudkan ide-ide Anda menjadi kenyataan.",
@@ -72,7 +72,7 @@ const WhyKreavoksSection = forwardRef<HTMLDivElement>((_, ref) => {
                     ].map((item, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center p-4 gap-6 shadow-sm rounded-lg group hover:bg-blue-50 border-b-4 border-transparent hover:border-blue-500 hover:scale-105 transition-transform duration-500"
+                            className="flex items-center p-4 gap-6 shadow-sm rounded-lg group hover:bg-blue-50 border-b-4 border-transparent hover:border-blue-500 hover:scale-101 transition-transform duration-500"
                         >
                             <div className="w-14 h-14 flex items-center justify-center group-hover:text-blue-500">
                                 {item.icon}

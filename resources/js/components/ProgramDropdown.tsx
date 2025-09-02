@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Code, Video, Volume2, FolderSearch, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "@inertiajs/react";
 
 const programItems = [
@@ -7,28 +7,28 @@ const programItems = [
         key: "software",
         label: "Jasa Pembuatan Software dan Design",
         desc: "Pengembangan & Desain Branding Profesional.",
-        icon: <Code className="w-12 h-12 text-blue-500" />,
+        iconSrc: "/images/icons/ProgramSoftware.svg",
         image: "/images/program/software.png",
     },
     {
         key: "ecourse",
         label: "E-Course",
         desc: "Kursus online untuk pengembangan diri.",
-        icon: <Video className="w-12 h-12 text-blue-500" />,
+        iconSrc: "/images/icons/ProgramECourse.svg",
         image: "/images/program/ecourse.png",
     },
     {
         key: "event",
         label: "Event & Workshop",
         desc: "Gabung event & workshop eksklusif.",
-        icon: <Volume2 className="w-12 h-12 text-blue-500" />,
+        iconSrc: "/images/icons/ProgramEvent.svg",
         image: "/images/program/event.png",
     },
     {
         key: "bootcamp",
         label: "Bootcamp",
         desc: "Siap bersaing dengan bootcamp intensif.",
-        icon: <FolderSearch className="w-12 h-12 text-blue-500" />,
+        iconSrc: "/images/icons/ProgramBootcamp.svg",
         image: "/images/program/bootcamp.png",
         badge: "Coming Soon",
     },
@@ -78,10 +78,20 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
                             <Link
                                 key={item.key}
                                 href="/program"
-                                className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                                className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded flex items-center gap-3"
                                 onClick={() => setOpen(false)}
                             >
+                                <img
+                                    src={item.iconSrc}
+                                    alt={item.label + " icon"}
+                                    className="w-6 h-6 object-contain mr-2"
+                                />
                                 {item.label}
+                                {item.badge && (
+                                    <span className="bg-yellow-300 text-xs font-medium px-2 py-0.5 rounded-full ml-2 text-blue-500">
+                                        {item.badge}
+                                    </span>
+                                )}
                             </Link>
                         ))}
                     </div>
@@ -136,7 +146,11 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
                                             : "hover:bg-gray-50"
                                     }`}
                                 >
-                                    {item.icon}
+                                    <img
+                                        src={item.iconSrc}
+                                        alt={item.label + " icon"}
+                                        className="w-12 h-12 object-contain"
+                                    />
                                     <div>
                                         <p
                                             className={`font-semibold ${
