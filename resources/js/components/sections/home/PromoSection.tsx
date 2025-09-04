@@ -11,38 +11,38 @@ const PromoSection = forwardRef<HTMLDivElement, PromoSectionProps>(
         return (
             <section
                 ref={ref}
-                className="container mx-auto px-6 md:px-12 lg:px-16 py-10 relative"
+                className="container mx-auto px-4 md:px-12 lg:px-16 py-8 relative"
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 relative z-10">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 relative z-10">
                     {/* Promo Card */}
-                    <div>
+                    <div className="w-full lg:w-1/2 flex justify-center lg:justify-start mb-6 lg:mb-0">
                         <PromoCard
-                            mainEvent={events[3]}
-                            stackEvent={events[0]}
+                            mainEvent={events[0]}
+                            stackEvent={events[1]}
                         />
                     </div>
 
                     {/* Countdown + Text */}
-                    <div className="flex flex-col items-center lg:items-start gap-6">
+                    <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start gap-6">
                         <PromoCountdown />
 
-                        <div className="flex flex-col items-start gap-2">
-                            <h2 className="text-3xl md:text-4xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight">
+                        <div className="flex flex-col items-start gap-2 w-full">
+                            <h2 className="text-2xl md:text-3xl lg:text-5xl bg-gradient-to-b from-blue-500 to-blue-300 bg-clip-text text-transparent font-semibold leading-tight text-left">
                                 Penawaran Menarik Nih Buat Kamu dari Kreavoks
                             </h2>
-                            <p className="text-gray-600 text-md">
+                            <p className="text-gray-600 text-md text-left">
                                 Tunggu apa lagi? Ambil kesempatan emas ini
                                 sekarang juga!!
                             </p>
                         </div>
 
                         <div className="flex flex-col gap-6 w-full">
-                            <div className="flex justify-between items-center w-full">
-                                <p className="font-semibold text-lg md:text-xl max-w-sm">
+                            <div className="flex flex-row justify-between items-center w-full gap-2">
+                                <p className="text-xl font-medium max-w-xs text-left">
                                     Gunakan kode promo dan dapatkan diskon
                                     hingga
                                 </p>
-                                <div className="bg-blue-500 text-yellow-300 px-6 py-3 rounded-full flex items-center justify-center font-semibold text-2xl md:text-4xl shrink-0">
+                                <div className="bg-blue-500 text-yellow-300 px-6 py-3 rounded-full flex items-center justify-center font-semibold text-2xl md:text-4xl shrink-0 mt-2 md:mt-0">
                                     20%
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const PromoSection = forwardRef<HTMLDivElement, PromoSectionProps>(
                                     );
                                     alert("Kode promo disalin!");
                                 }}
-                                className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto md:mx-0 transition hover:bg-gray-200 hover:scale-105"
+                                className="cursor-pointer flex items-center gap-2 border-2 border-dashed border-gray-400 text-gray-700 px-4 py-3 rounded-2xl font-semibold text-base max-w-max mx-auto lg:mx-0 transition hover:bg-gray-200 hover:scale-105"
                             >
                                 <div className="bg-white p-1 rounded-full">
                                     <svg
@@ -82,7 +82,7 @@ const PromoSection = forwardRef<HTMLDivElement, PromoSectionProps>(
                 </div>
 
                 {/* Background Gradasi Blur */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-200 rounded-full blur-3xl opacity-30 z-0" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[180px] md:w-[220px] lg:w-[300px] h-[180px] md:h-[220px] lg:h-[300px] bg-blue-200 rounded-full blur-3xl opacity-30 z-0" />
             </section>
         );
     }

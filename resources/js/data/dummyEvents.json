@@ -9,10 +9,15 @@
         "end_date": "2025-04-10",
         "time": "19.00 - 21.00 WIB",
         "mode": "Zoom Meeting",
-        "status": "inactive",
+        "status": "active",
         "image": "/images/dummy/events/mastering-uiux.png",
         "description": "Pelajari dasar-dasar UI/UX secara komprehensif dan pahami berbagai peluang karier di dunia desain digital. Workshop ini cocok untuk pemula yang ingin terjun ke dunia desain produk.",
-        "benefit": ["Project File", "Slide Materi", "Sertifikat", "Grup Diskusi"],
+        "benefit": [
+            "Project File",
+            "Slide Materi",
+            "Sertifikat",
+            "Grup Diskusi"
+        ],
         "learn": [
             "Build beautiful, fast and native-quality apps with Flutter",
             "Build iOS and Android apps with just one codebase",

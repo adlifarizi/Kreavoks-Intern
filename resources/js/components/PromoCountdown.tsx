@@ -39,15 +39,22 @@ export default function PromoCountdown() {
     ];
 
     return (
-        <div className="flex justify-center lg:justify-start items-center lg:gap-8 text-center flex-nowrap bg-white rounded-2xl px-0 md:px-6 py-2 md:py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
+        <div className="flex justify-center items-center text-center flex-nowrap bg-white rounded-2xl px-2 md:px-6 py-3 shadow-md shadow-blue-200 hover:scale-105 transition-transform duration-300">
             {countdownItems.map((item, idx) => (
-                <div key={idx} className="md:py-2 min-w-[80px]">
-                    <p className="text-lg md:text-xl lg:text-4xl font-semibold">
+                <div
+                    key={idx}
+                    className="flex flex-col items-center justify-center min-w-[60px] md:min-w-[80px] lg:min-w-[120px] py-2 relative"
+                >
+                    <p className="text-base md:text-xl lg:text-4xl font-semibold">
                         {item.value}
                     </p>
-                    <p className="text-xs md:text-sm font-medium">
+                    <p className="text-[10px] md:text-sm font-medium">
                         {item.label}
                     </p>
+                    {/* Garis vertikal kecuali item terakhir */}
+                    {idx < countdownItems.length - 1 && (
+                        <span className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-8 border-r border-gray-300"></span>
+                    )}
                 </div>
             ))}
         </div>
