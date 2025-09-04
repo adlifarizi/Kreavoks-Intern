@@ -28,10 +28,10 @@ export default function Register() {
     return (
         <div>
             <Head title="Register" />
-            <div className="min-h-screen flex items-center justify-center bg-gray-50">
-                <div className="flex flex-col md:flex-row w-full max-w-6xl bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="min-h-screen min-w-full flex items-center justify-center bg-gray-50">
+                <div className="flex flex-col md:flex-row w-full h-screen bg-white rounded-3xl shadow-lg overflow-hidden">
                     {/* Right: Illustration */}
-                    <div className="hidden md:flex flex-1 items-center justify-center p-2 relative">
+                    <div className="hidden lg:flex flex-1 items-center justify-center p-2 relative">
                         {/* Blue Card with Pattern */}
                         <div className="bg-blue-500 rounded-2xl w-full h-full flex flex-col items-center justify-center p-8 relative overflow-hidden">
                             {/* Pattern background */}
@@ -46,14 +46,15 @@ export default function Register() {
                                 <div className="absolute top-8 left-8 right-8 flex items-start text-left">
                                     <h3 className="text-white text-2xl font-semibold leading-snug mb-2">
                                         Daftar Mudah, Belajar Cepat <br />
-                                        Buat Akun dan Mulai Tingkatkan Skillmu Hari Ini
+                                        Buat Akun dan Mulai Tingkatkan Skillmu
+                                        Hari Ini
                                     </h3>
                                 </div>
                                 {/* Illustration image */}
                                 <img
                                     src="/images/mentor-cta-people.png"
                                     alt="Register Illustration"
-                                    className="w-80 -mb-8 object-cover rounded-xl self-end"
+                                    className="w-80 -mb-8 object-cover rounded-xl"
                                 />
                             </div>
                         </div>
@@ -67,7 +68,9 @@ export default function Register() {
                                 className="h-5 mb-8"
                             />
                             <h2 className="text-3xl font-bold mb-2">
-                                Ayo Tingkatkan<br />Belajarmu!
+                                Ayo Tingkatkan
+                                <br />
+                                Belajarmu!
                             </h2>
                             <p className="text-sm text-gray-500">
                                 Buat akunmu dan terus pantau perkembangan

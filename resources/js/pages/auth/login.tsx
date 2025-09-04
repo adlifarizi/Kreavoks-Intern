@@ -26,8 +26,8 @@ export default function Login() {
     return (
         <div>
             <Head title="Login" />
-            <div className="min-h-screen flex items-center justify-center bg-gray-50">
-                <div className="flex flex-col md:flex-row w-full max-w-6xl bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="min-h-screen min-w-full flex items-center justify-center bg-gray-50">
+                <div className="flex flex-col md:flex-row w-full h-screen bg-white shadow-lg overflow-hidden">
                     {/* Left: Form */}
                     <div className="flex-1 flex flex-col justify-center px-8 py-12">
                         <div className="mb-8">
@@ -134,7 +134,7 @@ export default function Login() {
                         </p>
                     </div>
                     {/* Right: Illustration */}
-                    <div className="hidden md:flex flex-1 items-center justify-center p-2 relative">
+                    <div className="hidden lg:flex flex-1 items-center justify-center p-2 relative">
                         {/* Blue Card with Pattern */}
                         <div className="bg-blue-500 rounded-2xl w-full h-full flex flex-col items-center justify-center p-8 relative overflow-hidden">
                             {/* Pattern background */}
@@ -148,7 +148,8 @@ export default function Login() {
                                 {/* Text */}
                                 <div className="absolute top-8 left-8 right-8 flex items-start text-left">
                                     <h3 className="text-white text-2xl font-semibold leading-snug mb-2">
-                                        Akses Materi Terbaik Bersama Mentor Profesional Langsung dari Dashboard Anda
+                                        Akses Materi Terbaik Bersama Mentor
+                                        Profesional Langsung dari Dashboard Anda
                                     </h3>
                                 </div>
                                 {/* Illustration image */}
