@@ -12,15 +12,16 @@ const heroData = {
         icons: [
             {
                 src: "/images/program/course/hero-icon-play.svg",
-                className: "absolute left-24 top-20 w-20 h-20 animate-wander-1",
+                className: "absolute left-14 top-10 w-16 h-16 animate-float",
             },
             {
                 src: "/images/program/course/hero-icon-creative.svg",
-                className: "absolute left-28 bottom-10 w-20 h-20 animate-wander-1",
+                className: "absolute left-20 bottom-10 w-20 h-20 animate-float",
             },
             {
                 src: "/images/program/course/hero-icon-network.svg",
-                className: "absolute right-0 bottom-0 w-20 h-20 animate-wander-1",
+                className:
+                    "absolute right-0 bottom-0 w-20 h-20 animate-wander-1",
             },
         ],
         gradient: "from-blue-600 via-blue-500 to-yellow-200",
@@ -32,19 +33,20 @@ const heroData = {
         icons: [
             {
                 src: "/images/program/event/hero-icon-camera.svg",
-                className: "absolute -left-5 top-20 w-38 h-38 animate-wander-1",
+                className: "absolute left-0 top-20 w-20 h-20 animate-wander-1",
             },
             {
                 src: "/images/program/event/hero-icon-calendar.svg",
-                className: "absolute right-5 top-28 w-24 h-24 animate-wander-1",
+                className: "absolute right-5 top-28 w-16 h-16 animate-float",
             },
             {
                 src: "/images/program/event/hero-icon-button.svg",
-                className: "absolute right-5 -bottom-20 w-42 h-42",
+                className:
+                    "absolute right-5 -bottom-20 w-40 h-40 animate-float",
             },
             {
                 src: "/images/program/event/hero-icon-pointer.svg",
-                className: "absolute right-2 -bottom-8 w-8 h-10",
+                className: "absolute right-2 -bottom-8 w-8 h-8 animate-float",
             },
         ],
         gradient: "from-blue-600 via-blue-500 to-blue-50",
@@ -56,18 +58,18 @@ const heroData = {
         icons: [
             {
                 src: "/images/program/event/hero-icon-camera.svg",
-                className: "absolute -left-5 top-20 w-38 h-38 animate-wander-1",
+                className: "absolute left-0 top-20 w-20 h-20 animate-wander-1",
             },
             {
                 src: "/images/program/event/hero-icon-calendar.svg",
-                className: "absolute right-5 top-28 w-24 h-24 animate-wander-1",
+                className: "absolute right-5 top-28 w-16 h-16 animate-float",
             },
             {
-                src: "/images/program/course/hero-icon-network.svg",
-                className: "absolute right-0 bottom-0 w-20 h-20 animate-wander-1",
+                src: "/images/program/course/hero-icon-play.svg",
+                className: "absolute right-5 bottom-5 w-14 h-14",
             },
         ],
-        gradient: "from-blue-600 via-blue-500 to-yellow-200",
+        gradient: "from-blue-600 via-blue-500 to-blue-50",
     },
 };
 

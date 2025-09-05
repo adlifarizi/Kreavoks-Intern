@@ -2,12 +2,15 @@ import { Head, usePage } from "@inertiajs/react";
 import type { Course } from "@/types";
 import AppLayout from "@/layouts/app-layout";
 import ImageOverlay from "@/components/sections/detail-program/ImageOverlay";
-import VideoLists, { dummyLists } from "@/components/sections/detail-program/VideoLists";
+import VideoLists, {
+    dummyLists,
+} from "@/components/sections/detail-program/VideoLists";
 import CourseInfoSection from "@/components/sections/detail-program/CourseInfoSection";
 import RecommendedSection from "@/components/sections/detail-program/RecommendedSection";
 
 export default function CoursePage() {
-    const { course, courses } = usePage<{ course: Course; courses: Course[] }>().props;
+    const { course, courses } = usePage<{ course: Course; courses: Course[] }>()
+        .props;
 
     return (
         <AppLayout>
@@ -15,7 +18,10 @@ export default function CoursePage() {
             <div className="flex items-center justify-center py-12 md:py-20 transition-opacity duration-500">
                 <div className="w-full mx-auto px-2 md:px-10 lg:px-20 flex flex-col lg:flex-row gap-8">
                     <ImageOverlay
-                        src={course.image || "/images/placeholders/course-card.png"}
+                        src={
+                            course.image ||
+                            "/images/placeholders/course-card.png"
+                        }
                         alt={course.title}
                         slug={course.slug}
                     />
@@ -32,10 +38,22 @@ export default function CoursePage() {
                 description={course.description ?? ""}
                 benefit={course.benefit ?? []}
                 learn={course.learn ?? []}
-                released={Array.isArray(course.released) ? course.released.join(", ") : (course.released ?? "")}
-                updated={Array.isArray(course.updated) ? course.updated.join(", ") : (course.updated ?? "")}
+                released={
+                    Array.isArray(course.released)
+                        ? course.released.join(", ")
+                        : course.released ?? ""
+                }
+                updated={
+                    Array.isArray(course.updated)
+                        ? course.updated.join(", ")
+                        : course.updated ?? ""
+                }
             />
-            <RecommendedSection items={courses} currentSlug={course.slug} type="course" />
+            <RecommendedSection
+                items={courses}
+                currentSlug={course.slug}
+                type="course"
+            />
         </AppLayout>
     );
 }

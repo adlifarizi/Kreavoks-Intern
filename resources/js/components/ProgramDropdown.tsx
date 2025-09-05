@@ -79,7 +79,7 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
                             <Link
                                 key={item.key}
                                 href="/program"
-                                className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded flex items-center gap-3"
+                                className="px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded flex items-center gap-3"
                                 onClick={() => setOpen(false)}
                             >
                                 <img
@@ -123,9 +123,9 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
             </button>
             {open && (
                 <>
-                    {/* Overlay for outside click */}
+                    {/* Overlay */}
                     <div
-                        className="fixed inset-0 z-[90] bg-black/30"
+                        className="fixed inset-0 z-[90] mt-20 bg-black/30"
                         onClick={() => setOpen(false)}
                         style={{ cursor: "default" }}
                     ></div>
