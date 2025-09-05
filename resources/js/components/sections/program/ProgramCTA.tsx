@@ -40,9 +40,6 @@ const ProgramCTA = forwardRef<HTMLDivElement>((props, ref) => (
                             </svg>
                             Hubungi Kami
                         </CTAButton>
-                        <CTAButton href="#" className="bg-white text-blue-500">
-                            Lihat Semua Program
-                        </CTAButton>
                     </div>
                 </div>
             </div>

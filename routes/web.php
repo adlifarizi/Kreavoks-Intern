@@ -57,6 +57,17 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('/register/otp', function () {
+    return Inertia::render('auth/otp');
+})->name('otp');
+Route::post('/register/otp', [AuthController::class, 'verifyOtp'])->name('otp.verify');
+
+
+Route::get('/register/user-preferences', function () {
+    return Inertia::render('auth/user-preferences');
+})->name('user.preferences');
+Route::post('/register/user-preferences', [AuthController::class, 'savePreferences'])->name('user.preferences.save');
+
 Route::post('/logout', [AuthController::class, 'logout']);
 
 
