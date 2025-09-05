@@ -39,8 +39,9 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
     const [activeKey, setActiveKey] = useState(programItems[0].key);
     const ref = useRef<HTMLDivElement>(null);
 
+    // Close dropdown on outside click (desktop & mobile)
     useEffect(() => {
-        if (mobile) {
+        if (open) {
             function handleClick(e: MouseEvent) {
                 if (ref.current && !ref.current.contains(e.target as Node)) {
                     setOpen(false);
@@ -49,7 +50,7 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
             document.addEventListener("mousedown", handleClick);
             return () => document.removeEventListener("mousedown", handleClick);
         }
-    }, [mobile]);
+    }, [open]);
 
     const activeItem = programItems.find((item) => item.key === activeKey);
 
@@ -102,12 +103,7 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
 
     // Desktop Version
     return (
-        <div
-            className="relative"
-            ref={ref}
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-        >
+        <div className="relative" ref={ref} onMouseEnter={() => setOpen(true)}>
             <button
                 type="button"
                 className={`px-4 py-1 rounded-full flex items-center gap-2 cursor-pointer hover:text-blue-500 hover:bg-blue-50 ${
@@ -116,6 +112,7 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
                         : "text-gray-800"
                 }`}
                 tabIndex={0}
+                onClick={() => setOpen(!open)}
             >
                 Program
                 <i
@@ -126,13 +123,17 @@ export default function ProgramDropdown({ mobile = false, isActive = false }) {
             </button>
             {open && (
                 <>
-                    {/* Overlay */}
+                    {/* Overlay for outside click */}
                     <div
-                        className="fixed inset-0 mt-20 bg-black/20 z-[90] pointer-events-none"
+                        className="fixed inset-0 z-[90] bg-black/30"
                         onClick={() => setOpen(false)}
+                        style={{ cursor: "default" }}
                     ></div>
                     {/* Dropdown */}
-                    <div className="fixed left-1/2 top-[100px] -translate-x-1/2 w-[90vw] max-w-[1200px] bg-white backdrop-blur-lg rounded-3xl shadow-2xl flex p-8 z-[100] transition-all duration-300">
+                    <div
+                        className="fixed left-1/2 top-[100px] -translate-x-1/2 w-[90vw] max-w-[1200px] bg-white backdrop-blur-lg rounded-3xl shadow-2xl flex p-8 z-[100] transition-all duration-300"
+                        onMouseLeave={() => setOpen(false)}
+                    >
                         {/* Left Menu */}
                         <div className="flex flex-col gap-4 flex-[0_0_440px] max-w-[440px]">
                             {programItems.map((item) => (

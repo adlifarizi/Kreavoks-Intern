@@ -73,9 +73,7 @@ export function Navbar() {
                     Home
                 </Link>
                 <Link href="/program">
-                    <ProgramDropdown
-                        isActive={url.startsWith("/program")}
-                    />
+                    <ProgramDropdown isActive={url.startsWith("/program")} />
                 </Link>
                 <Link
                     href="/portfolio"
